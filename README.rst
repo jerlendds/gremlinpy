@@ -53,7 +53,7 @@ Installation:
         self._client_session = None
       
     
-This is a quick and dirty fix to instead get the existing loop. In the future I may update this patch to detect an existing loop or something and choose what to do based on that, but currently the change looks like (gremlinpy/driver/aiohttp/transport.py):  
+This is a quick and dirty fix to instead get the existing loop. Currently the change looks like (gremlinpy/driver/aiohttp/transport.py):  
 
 .. code:: python
 

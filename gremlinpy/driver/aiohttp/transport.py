@@ -30,7 +30,6 @@ class AiohttpTransport(AbstractBaseTransport):
     nest_asyncio_applied = False
 
     def __init__(self, call_from_event_loop=None, read_timeout=None, write_timeout=None, **kwargs):
-        # Patched to work with my uvloop.Loop - By jerlendds - (https://studium.dev):
         if call_from_event_loop is not None and call_from_event_loop and not AiohttpTransport.nest_asyncio_applied:
             """ 
                 The AiohttpTransport implementation uses the asyncio event loop. Because of this, it cannot be called 
