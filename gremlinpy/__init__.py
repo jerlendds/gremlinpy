@@ -17,4 +17,4 @@
 # under the License.
 #
 
-__author__ = 'Marko A. Rodriguez (http://markorodriguez.com). Patched to work with a uvloop.Loop (e.g. In a FastAPI app) by jerlendds. (https://studium.dev)'
+__author__ = 'Marko A. Rodriguez (http://markorodriguez.com). Patched to work with my uvloop.Loop (e.g. In my FastAPI app) by jerlendds. (https://studium.dev)'
