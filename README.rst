@@ -16,10 +16,10 @@
 .. under the License.
 
 =================================
-Apache TinkerPop - Gremlin Python - *Patched by [jerlendds](https://github.com/jerlendds)*  
+Apache TinkerPop - Gremlin Python 
 =================================
 
-Message from jerlendds:  
+ *Patched by [jerlendds](https://github.com/jerlendds)*:
 
 1. I changed the package name to `gremlinpy` so my imports aren't so long
 
