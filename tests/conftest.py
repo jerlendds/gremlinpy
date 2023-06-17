@@ -27,16 +27,16 @@ import queue
 
 import yaml
 
-from gremlin_python.driver.client import Client
-from gremlin_python.driver.connection import Connection
-from gremlin_python.driver import serializer
-from gremlin_python.driver.driver_remote_connection import (
+from gremlinpy.driver.client import Client
+from gremlinpy.driver.connection import Connection
+from gremlinpy.driver import serializer
+from gremlinpy.driver.driver_remote_connection import (
     DriverRemoteConnection)
-from gremlin_python.driver.protocol import GremlinServerWSProtocol
-from gremlin_python.driver.serializer import (
+from gremlinpy.driver.protocol import GremlinServerWSProtocol
+from gremlinpy.driver.serializer import (
     GraphSONMessageSerializer, GraphSONSerializersV2d0, GraphSONSerializersV3d0,
     GraphBinarySerializersV1)
-from gremlin_python.driver.aiohttp.transport import AiohttpTransport
+from gremlinpy.driver.aiohttp.transport import AiohttpTransport
 
 gremlin_server_url = os.environ.get('GREMLIN_SERVER_URL', 'ws://localhost:{}/gremlin')
 gremlin_basic_auth_url = os.environ.get('GREMLIN_SERVER_BASIC_AUTH_URL', 'wss://localhost:{}/gremlin')

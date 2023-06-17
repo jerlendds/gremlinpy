@@ -23,7 +23,7 @@ __author__ = 'Cole Greer (cole@colegreer.ca)'
 import re
 import operator
 from functools import reduce
-from gremlin_python.driver import useragent
+from gremlinpy.driver import useragent
 
 
 # Note: This test demonstrates different behavior in response to a server sending a close frame than the other GLV's.

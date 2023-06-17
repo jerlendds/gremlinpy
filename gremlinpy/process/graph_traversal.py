@@ -56,8 +56,8 @@ class GraphTraversalSource(object):
 
     def withBulk(self, *args):
         warnings.warn(
-            "gremlin_python.process.GraphTraversalSource.withBulk will be replaced by "
-            "gremlin_python.process.GraphTraversalSource.with_bulk.",
+            "gremlinpy.process.GraphTraversalSource.withBulk will be replaced by "
+            "gremlinpy.process.GraphTraversalSource.with_bulk.",
             DeprecationWarning)
         return self.with_bulk(*args)
 
@@ -68,8 +68,8 @@ class GraphTraversalSource(object):
 
     def withPath(self, *args):
         warnings.warn(
-            "gremlin_python.process.GraphTraversalSource.withPath will be replaced by "
-            "gremlin_python.process.Traversal.with_path.",
+            "gremlinpy.process.GraphTraversalSource.withPath will be replaced by "
+            "gremlinpy.process.Traversal.with_path.",
             DeprecationWarning)
         return self.with_path(*args)
 
@@ -80,8 +80,8 @@ class GraphTraversalSource(object):
 
     def withSack(self, *args):
         warnings.warn(
-            "gremlin_python.process.GraphTraversalSource.withSack will be replaced by "
-            "gremlin_python.process.GraphTraversalSource.with_sack.",
+            "gremlinpy.process.GraphTraversalSource.withSack will be replaced by "
+            "gremlinpy.process.GraphTraversalSource.with_sack.",
             DeprecationWarning)
         return self.with_sack(*args)
 
@@ -92,8 +92,8 @@ class GraphTraversalSource(object):
 
     def withSideEffect(self, *args):
         warnings.warn(
-            "gremlin_python.process.GraphTraversalSource.with_side_effect will be replaced by "
-            "gremlin_python.process.GraphTraversalSource.with_sack.",
+            "gremlinpy.process.GraphTraversalSource.with_side_effect will be replaced by "
+            "gremlinpy.process.GraphTraversalSource.with_sack.",
             DeprecationWarning)
         return self.with_side_effect(*args)
 
@@ -104,8 +104,8 @@ class GraphTraversalSource(object):
 
     def withStrategies(self, *args):
         warnings.warn(
-            "gremlin_python.process.GraphTraversalSource.withStrategies will be replaced by "
-            "gremlin_python.process.GraphTraversalSource.with_strategies.",
+            "gremlinpy.process.GraphTraversalSource.withStrategies will be replaced by "
+            "gremlinpy.process.GraphTraversalSource.with_strategies.",
             DeprecationWarning)
         return self.with_strategies(*args)
 
@@ -116,8 +116,8 @@ class GraphTraversalSource(object):
 
     def withoutStrategies(self, *args):
         warnings.warn(
-            "gremlin_python.process.GraphTraversalSource.withoutStrategies will be replaced by "
-            "gremlin_python.process.GraphTraversalSource.without_strategies.",
+            "gremlinpy.process.GraphTraversalSource.withoutStrategies will be replaced by "
+            "gremlinpy.process.GraphTraversalSource.without_strategies.",
             DeprecationWarning)
         return self.without_strategies(*args)
 
@@ -142,8 +142,8 @@ class GraphTraversalSource(object):
 
     def withRemote(self, remote_connection):
         warnings.warn(
-            "gremlin_python.process.GraphTraversalSource.withRemote will be replaced by "
-            "gremlin_python.process.GraphTraversalSource.with_remote.",
+            "gremlinpy.process.GraphTraversalSource.withRemote will be replaced by "
+            "gremlinpy.process.GraphTraversalSource.with_remote.",
             DeprecationWarning)
         return self.with_remote(remote_connection)
 
@@ -174,8 +174,8 @@ class GraphTraversalSource(object):
     def withComputer(self, graph_computer=None, workers=None, result=None, persist=None, vertices=None,
                      edges=None, configuration=None):
         warnings.warn(
-            "gremlin_python.process.GraphTraversalSource.withComputer will be replaced by "
-            "gremlin_python.process.GraphTraversalSource.with_computer.",
+            "gremlinpy.process.GraphTraversalSource.withComputer will be replaced by "
+            "gremlinpy.process.GraphTraversalSource.with_computer.",
             DeprecationWarning)
         return self.with_computer(graph_computer, workers, result, persist, vertices, edges, configuration)
 
@@ -196,8 +196,8 @@ class GraphTraversalSource(object):
 
     def addE(self, *args):
         warnings.warn(
-            "gremlin_python.process.GraphTraversalSource.addE will be replaced by "
-            "gremlin_python.process.GraphTraversalSource.add_e.",
+            "gremlinpy.process.GraphTraversalSource.addE will be replaced by "
+            "gremlinpy.process.GraphTraversalSource.add_e.",
             DeprecationWarning)
         return self.add_e(*args)
 
@@ -208,8 +208,8 @@ class GraphTraversalSource(object):
 
     def addV(self, *args):
         warnings.warn(
-            "gremlin_python.process.GraphTraversalSource.addV will be replaced by "
-            "gremlin_python.process.GraphTraversalSource.add_v.",
+            "gremlinpy.process.GraphTraversalSource.addV will be replaced by "
+            "gremlinpy.process.GraphTraversalSource.add_v.",
             DeprecationWarning)
         return self.add_v(*args)
 
@@ -285,8 +285,8 @@ class GraphTraversal(Traversal):
 
     def addE(self, *args):
         warnings.warn(
-            "gremlin_python.process.GraphTraversal.addE will be replaced by "
-            "gremlin_python.process.GraphTraversal.add_e.",
+            "gremlinpy.process.GraphTraversal.addE will be replaced by "
+            "gremlinpy.process.GraphTraversal.add_e.",
             DeprecationWarning)
         return self.add_e(*args)
 
@@ -296,8 +296,8 @@ class GraphTraversal(Traversal):
 
     def addV(self, *args):
         warnings.warn(
-            "gremlin_python.process.GraphTraversalSource.addV will be replaced by "
-            "gremlin_python.process.GraphTraversalSource.add_v.",
+            "gremlinpy.process.GraphTraversalSource.addV will be replaced by "
+            "gremlinpy.process.GraphTraversalSource.add_v.",
             DeprecationWarning)
         return self.add_v(*args)
 
@@ -327,8 +327,8 @@ class GraphTraversal(Traversal):
 
     def bothE(self, *args):
         warnings.warn(
-            "gremlin_python.process.GraphTraversalSource.bothE will be replaced by "
-            "gremlin_python.process.GraphTraversalSource.both_e.",
+            "gremlinpy.process.GraphTraversalSource.bothE will be replaced by "
+            "gremlinpy.process.GraphTraversalSource.both_e.",
             DeprecationWarning)
         return self.both_e(*args)
 
@@ -338,8 +338,8 @@ class GraphTraversal(Traversal):
 
     def bothV(self, *args):
         warnings.warn(
-            "gremlin_python.process.GraphTraversalSource.bothV will be replaced by "
-            "gremlin_python.process.GraphTraversalSource.both_v.",
+            "gremlinpy.process.GraphTraversalSource.bothV will be replaced by "
+            "gremlinpy.process.GraphTraversalSource.both_v.",
             DeprecationWarning)
         return self.both_v(*args)
 
@@ -377,8 +377,8 @@ class GraphTraversal(Traversal):
 
     def connectedComponent(self, *args):
         warnings.warn(
-            "gremlin_python.process.GraphTraversalSource.connectedComponent will be replaced by "
-            "gremlin_python.process.GraphTraversalSource.connected_component.",
+            "gremlinpy.process.GraphTraversalSource.connectedComponent will be replaced by "
+            "gremlinpy.process.GraphTraversalSource.connected_component.",
             DeprecationWarning)
         return self.connected_component(*args)
 
@@ -396,8 +396,8 @@ class GraphTraversal(Traversal):
 
     def cyclicPath(self, *args):
         warnings.warn(
-            "gremlin_python.process.GraphTraversalSource.cyclicPath will be replaced by "
-            "gremlin_python.process.GraphTraversalSource.cyclic_path.",
+            "gremlinpy.process.GraphTraversalSource.cyclicPath will be replaced by "
+            "gremlinpy.process.GraphTraversalSource.cyclic_path.",
             DeprecationWarning)
         return self.cyclic_path(*args)
 
@@ -419,8 +419,8 @@ class GraphTraversal(Traversal):
 
     def elementMap(self, *args):
         warnings.warn(
-            "gremlin_python.process.GraphTraversalSource.elementMap will be replaced by "
-            "gremlin_python.process.GraphTraversalSource.element_map.",
+            "gremlinpy.process.GraphTraversalSource.elementMap will be replaced by "
+            "gremlinpy.process.GraphTraversalSource.element_map.",
             DeprecationWarning)
         return self.element_map(*args)
 
@@ -442,8 +442,8 @@ class GraphTraversal(Traversal):
 
     def flatMap(self, *args):
         warnings.warn(
-            "gremlin_python.process.GraphTraversalSource.flatMap will be replaced by "
-            "gremlin_python.process.GraphTraversalSource.flat_map.",
+            "gremlinpy.process.GraphTraversalSource.flatMap will be replaced by "
+            "gremlinpy.process.GraphTraversalSource.flat_map.",
             DeprecationWarning)
         return self.flat_map(*args)
 
@@ -465,8 +465,8 @@ class GraphTraversal(Traversal):
 
     def groupCount(self, *args):
         warnings.warn(
-            "gremlin_python.process.GraphTraversalSource.groupCount will be replaced by "
-            "gremlin_python.process.GraphTraversalSource.group_count.",
+            "gremlinpy.process.GraphTraversalSource.groupCount will be replaced by "
+            "gremlinpy.process.GraphTraversalSource.group_count.",
             DeprecationWarning)
         return self.group_count(*args)
 
@@ -480,8 +480,8 @@ class GraphTraversal(Traversal):
 
     def hasId(self, *args):
         warnings.warn(
-            "gremlin_python.process.GraphTraversalSource.hasId will be replaced by "
-            "gremlin_python.process.GraphTraversalSource.has_id.",
+            "gremlinpy.process.GraphTraversalSource.hasId will be replaced by "
+            "gremlinpy.process.GraphTraversalSource.has_id.",
             DeprecationWarning)
         return self.has_id(*args)
 
@@ -491,8 +491,8 @@ class GraphTraversal(Traversal):
 
     def hasKey(self, *args):
         warnings.warn(
-            "gremlin_python.process.GraphTraversalSource.hasKey will be replaced by "
-            "gremlin_python.process.GraphTraversalSource.has_key.",
+            "gremlinpy.process.GraphTraversalSource.hasKey will be replaced by "
+            "gremlinpy.process.GraphTraversalSource.has_key.",
             DeprecationWarning)
         return self.has_key_(*args)
 
@@ -502,8 +502,8 @@ class GraphTraversal(Traversal):
 
     def hasLabel(self, *args):
         warnings.warn(
-            "gremlin_python.process.GraphTraversalSource.hasLabel will be replaced by "
-            "gremlin_python.process.GraphTraversalSource.has_label.",
+            "gremlinpy.process.GraphTraversalSource.hasLabel will be replaced by "
+            "gremlinpy.process.GraphTraversalSource.has_label.",
             DeprecationWarning)
         return self.has_label(*args)
 
@@ -513,8 +513,8 @@ class GraphTraversal(Traversal):
 
     def hasNot(self, *args):
         warnings.warn(
-            "gremlin_python.process.GraphTraversalSource.hasNot will be replaced by "
-            "gremlin_python.process.GraphTraversalSource.has_not.",
+            "gremlinpy.process.GraphTraversalSource.hasNot will be replaced by "
+            "gremlinpy.process.GraphTraversalSource.has_not.",
             DeprecationWarning)
         return self.has_not(*args)
 
@@ -524,8 +524,8 @@ class GraphTraversal(Traversal):
 
     def hasValue(self, *args):
         warnings.warn(
-            "gremlin_python.process.GraphTraversalSource.hasValue will be replaced by "
-            "gremlin_python.process.GraphTraversalSource.has_value.",
+            "gremlinpy.process.GraphTraversalSource.hasValue will be replaced by "
+            "gremlinpy.process.GraphTraversalSource.has_value.",
             DeprecationWarning)
         return self.has_value(*args)
 
@@ -543,8 +543,8 @@ class GraphTraversal(Traversal):
 
     def inE(self, *args):
         warnings.warn(
-            "gremlin_python.process.GraphTraversalSource.inE will be replaced by "
-            "gremlin_python.process.GraphTraversalSource.in_e.",
+            "gremlinpy.process.GraphTraversalSource.inE will be replaced by "
+            "gremlinpy.process.GraphTraversalSource.in_e.",
             DeprecationWarning)
         return self.in_e(*args)
 
@@ -554,8 +554,8 @@ class GraphTraversal(Traversal):
 
     def inV(self, *args):
         warnings.warn(
-            "gremlin_python.process.GraphTraversalSource.inV will be replaced by "
-            "gremlin_python.process.GraphTraversalSource.in_v.",
+            "gremlinpy.process.GraphTraversalSource.inV will be replaced by "
+            "gremlinpy.process.GraphTraversalSource.in_v.",
             DeprecationWarning)
         return self.in_v(*args)
 
@@ -657,8 +657,8 @@ class GraphTraversal(Traversal):
 
     def otherV(self, *args):
         warnings.warn(
-            "gremlin_python.process.GraphTraversalSource.otherV will be replaced by "
-            "gremlin_python.process.GraphTraversalSource.other_v.",
+            "gremlinpy.process.GraphTraversalSource.otherV will be replaced by "
+            "gremlinpy.process.GraphTraversalSource.other_v.",
             DeprecationWarning)
         return self.other_v(*args)
 
@@ -672,8 +672,8 @@ class GraphTraversal(Traversal):
 
     def outE(self, *args):
         warnings.warn(
-            "gremlin_python.process.GraphTraversalSource.outE will be replaced by "
-            "gremlin_python.process.GraphTraversalSource.out_e.",
+            "gremlinpy.process.GraphTraversalSource.outE will be replaced by "
+            "gremlinpy.process.GraphTraversalSource.out_e.",
             DeprecationWarning)
         return self.out_e(*args)
 
@@ -683,8 +683,8 @@ class GraphTraversal(Traversal):
 
     def outV(self, *args):
         warnings.warn(
-            "gremlin_python.process.GraphTraversalSource.outV will be replaced by "
-            "gremlin_python.process.GraphTraversalSource.out_v.",
+            "gremlinpy.process.GraphTraversalSource.outV will be replaced by "
+            "gremlinpy.process.GraphTraversalSource.out_v.",
             DeprecationWarning)
         return self.out_v(*args)
 
@@ -694,8 +694,8 @@ class GraphTraversal(Traversal):
 
     def pageRank(self, *args):
         warnings.warn(
-            "gremlin_python.process.GraphTraversalSource.pageRank will be replaced by "
-            "gremlin_python.process.GraphTraversalSource.page_rank.",
+            "gremlinpy.process.GraphTraversalSource.pageRank will be replaced by "
+            "gremlinpy.process.GraphTraversalSource.page_rank.",
             DeprecationWarning)
         return self.page_rank(*args)
 
@@ -709,8 +709,8 @@ class GraphTraversal(Traversal):
 
     def peerPressure(self, *args):
         warnings.warn(
-            "gremlin_python.process.GraphTraversalSource.peerPressure will be replaced by "
-            "gremlin_python.process.GraphTraversalSource.peer_pressure.",
+            "gremlinpy.process.GraphTraversalSource.peerPressure will be replaced by "
+            "gremlinpy.process.GraphTraversalSource.peer_pressure.",
             DeprecationWarning)
         return self.peer_pressure(*args)
 
@@ -740,8 +740,8 @@ class GraphTraversal(Traversal):
 
     def propertyMap(self, *args):
         warnings.warn(
-            "gremlin_python.process.GraphTraversalSource.propertyMap will be replaced by "
-            "gremlin_python.process.GraphTraversalSource.property_map.",
+            "gremlinpy.process.GraphTraversalSource.propertyMap will be replaced by "
+            "gremlinpy.process.GraphTraversalSource.property_map.",
             DeprecationWarning)
         return self.property_map(*args)
 
@@ -775,8 +775,8 @@ class GraphTraversal(Traversal):
 
     def shortestPath(self, *args):
         warnings.warn(
-            "gremlin_python.process.GraphTraversalSource.shortestPath will be replaced by "
-            "gremlin_python.process.GraphTraversalSource.shortest_path.",
+            "gremlinpy.process.GraphTraversalSource.shortestPath will be replaced by "
+            "gremlinpy.process.GraphTraversalSource.shortest_path.",
             DeprecationWarning)
         return self.shortest_path(*args)
 
@@ -786,8 +786,8 @@ class GraphTraversal(Traversal):
 
     def sideEffect(self, *args):
         warnings.warn(
-            "gremlin_python.process.GraphTraversalSource.sideEffect will be replaced by "
-            "gremlin_python.process.GraphTraversalSource.side_effect.",
+            "gremlinpy.process.GraphTraversalSource.sideEffect will be replaced by "
+            "gremlinpy.process.GraphTraversalSource.side_effect.",
             DeprecationWarning)
         return self.side_effect(*args)
 
@@ -797,8 +797,8 @@ class GraphTraversal(Traversal):
 
     def simplePath(self, *args):
         warnings.warn(
-            "gremlin_python.process.GraphTraversalSource.simplePath will be replaced by "
-            "gremlin_python.process.GraphTraversalSource.simple_path.",
+            "gremlinpy.process.GraphTraversalSource.simplePath will be replaced by "
+            "gremlinpy.process.GraphTraversalSource.simple_path.",
             DeprecationWarning)
         return self.simple_path(*args)
 
@@ -828,8 +828,8 @@ class GraphTraversal(Traversal):
 
     def timeLimit(self, *args):
         warnings.warn(
-            "gremlin_python.process.GraphTraversalSource.timeLimit will be replaced by "
-            "gremlin_python.process.GraphTraversalSource.time_limit.",
+            "gremlinpy.process.GraphTraversalSource.timeLimit will be replaced by "
+            "gremlinpy.process.GraphTraversalSource.time_limit.",
             DeprecationWarning)
         return self.time_limit(*args)
 
@@ -847,8 +847,8 @@ class GraphTraversal(Traversal):
 
     def toE(self, *args):
         warnings.warn(
-            "gremlin_python.process.GraphTraversalSource.toE will be replaced by "
-            "gremlin_python.process.GraphTraversalSource.to_e.",
+            "gremlinpy.process.GraphTraversalSource.toE will be replaced by "
+            "gremlinpy.process.GraphTraversalSource.to_e.",
             DeprecationWarning)
         return self.to_e(*args)
 
@@ -858,8 +858,8 @@ class GraphTraversal(Traversal):
 
     def toV(self, *args):
         warnings.warn(
-            "gremlin_python.process.GraphTraversalSource.toV will be replaced by "
-            "gremlin_python.process.GraphTraversalSource.to_v.",
+            "gremlinpy.process.GraphTraversalSource.toV will be replaced by "
+            "gremlinpy.process.GraphTraversalSource.to_v.",
             DeprecationWarning)
         return self.to_v(*args)
 
@@ -889,8 +889,8 @@ class GraphTraversal(Traversal):
 
     def valueMap(self, *args):
         warnings.warn(
-            "gremlin_python.process.GraphTraversalSource.valueMap will be replaced by "
-            "gremlin_python.process.GraphTraversalSource.value_map.",
+            "gremlinpy.process.GraphTraversalSource.valueMap will be replaced by "
+            "gremlinpy.process.GraphTraversalSource.value_map.",
             DeprecationWarning)
         return self.value_map(*args)
 
@@ -946,8 +946,8 @@ class __(object, metaclass=MagicType):
     @classmethod
     def addE(cls, *args):
         warnings.warn(
-            "gremlin_python.process.__.addE will be replaced by "
-            "gremlin_python.process.__.add_e.",
+            "gremlinpy.process.__.addE will be replaced by "
+            "gremlinpy.process.__.add_e.",
             DeprecationWarning)
         return cls.add_e(*args)
 
@@ -958,8 +958,8 @@ class __(object, metaclass=MagicType):
     @classmethod
     def addV(cls, *args):
         warnings.warn(
-            "gremlin_python.process.__.addV will be replaced by "
-            "gremlin_python.process.__.add_v.",
+            "gremlinpy.process.__.addV will be replaced by "
+            "gremlinpy.process.__.add_v.",
             DeprecationWarning)
         return cls.add_v(*args)
 
@@ -990,8 +990,8 @@ class __(object, metaclass=MagicType):
     @classmethod
     def bothE(cls, *args):
         warnings.warn(
-            "gremlin_python.process.__.bothE will be replaced by "
-            "gremlin_python.process.__.both_e.",
+            "gremlinpy.process.__.bothE will be replaced by "
+            "gremlinpy.process.__.both_e.",
             DeprecationWarning)
         return cls.both_e(*args)
 
@@ -1002,8 +1002,8 @@ class __(object, metaclass=MagicType):
     @classmethod
     def bothV(cls, *args):
         warnings.warn(
-            "gremlin_python.process.__.bothV will be replaced by "
-            "gremlin_python.process.__.both_v.",
+            "gremlinpy.process.__.bothV will be replaced by "
+            "gremlinpy.process.__.both_v.",
             DeprecationWarning)
         return cls.both_v(*args)
 
@@ -1046,8 +1046,8 @@ class __(object, metaclass=MagicType):
     @classmethod
     def cyclicPath(cls, *args):
         warnings.warn(
-            "gremlin_python.process.__.cyclicPath will be replaced by "
-            "gremlin_python.process.__.cyclic_path.",
+            "gremlinpy.process.__.cyclicPath will be replaced by "
+            "gremlinpy.process.__.cyclic_path.",
             DeprecationWarning)
         return cls.cyclic_path(*args)
 
@@ -1070,8 +1070,8 @@ class __(object, metaclass=MagicType):
     @classmethod
     def elementMap(cls, *args):
         warnings.warn(
-            "gremlin_python.process.__.elementMap will be replaced by "
-            "gremlin_python.process.__.element_map.",
+            "gremlinpy.process.__.elementMap will be replaced by "
+            "gremlinpy.process.__.element_map.",
             DeprecationWarning)
         return cls.element_map(*args)
 
@@ -1094,8 +1094,8 @@ class __(object, metaclass=MagicType):
     @classmethod
     def flatMap(cls, *args):
         warnings.warn(
-            "gremlin_python.process.__.flatMap will be replaced by "
-            "gremlin_python.process.__.flat_map.",
+            "gremlinpy.process.__.flatMap will be replaced by "
+            "gremlinpy.process.__.flat_map.",
             DeprecationWarning)
         return cls.flat_map(*args)
 
@@ -1114,8 +1114,8 @@ class __(object, metaclass=MagicType):
     @classmethod
     def groupCount(cls, *args):
         warnings.warn(
-            "gremlin_python.process.__.groupCount will be replaced by "
-            "gremlin_python.process.__.group_count.",
+            "gremlinpy.process.__.groupCount will be replaced by "
+            "gremlinpy.process.__.group_count.",
             DeprecationWarning)
         return cls.group_count(*args)
 
@@ -1130,8 +1130,8 @@ class __(object, metaclass=MagicType):
     @classmethod
     def hasId(cls, *args):
         warnings.warn(
-            "gremlin_python.process.__.hasId will be replaced by "
-            "gremlin_python.process.__.has_id.",
+            "gremlinpy.process.__.hasId will be replaced by "
+            "gremlinpy.process.__.has_id.",
             DeprecationWarning)
         return cls.has_id(*args)
 
@@ -1142,8 +1142,8 @@ class __(object, metaclass=MagicType):
     @classmethod
     def hasKey(cls, *args):
         warnings.warn(
-            "gremlin_python.process.__.hasKey will be replaced by "
-            "gremlin_python.process.__.has_key.",
+            "gremlinpy.process.__.hasKey will be replaced by "
+            "gremlinpy.process.__.has_key.",
             DeprecationWarning)
         return cls.has_key_(*args)
 
@@ -1154,8 +1154,8 @@ class __(object, metaclass=MagicType):
     @classmethod
     def hasLabel(cls, *args):
         warnings.warn(
-            "gremlin_python.process.__.hasLabel will be replaced by "
-            "gremlin_python.process.__.has_label.",
+            "gremlinpy.process.__.hasLabel will be replaced by "
+            "gremlinpy.process.__.has_label.",
             DeprecationWarning)
         return cls.has_label(*args)
 
@@ -1166,8 +1166,8 @@ class __(object, metaclass=MagicType):
     @classmethod
     def hasNot(cls, *args):
         warnings.warn(
-            "gremlin_python.process.__.hasNot will be replaced by "
-            "gremlin_python.process.__.has_not.",
+            "gremlinpy.process.__.hasNot will be replaced by "
+            "gremlinpy.process.__.has_not.",
             DeprecationWarning)
         return cls.has_not(*args)
 
@@ -1178,8 +1178,8 @@ class __(object, metaclass=MagicType):
     @classmethod
     def hasValue(cls, *args):
         warnings.warn(
-            "gremlin_python.process.__.hasValue will be replaced by "
-            "gremlin_python.process.__.has_value.",
+            "gremlinpy.process.__.hasValue will be replaced by "
+            "gremlinpy.process.__.has_value.",
             DeprecationWarning)
         return cls.has_value(*args)
 
@@ -1198,8 +1198,8 @@ class __(object, metaclass=MagicType):
     @classmethod
     def inE(cls, *args):
         warnings.warn(
-            "gremlin_python.process.__.inE will be replaced by "
-            "gremlin_python.process.__.in_e.",
+            "gremlinpy.process.__.inE will be replaced by "
+            "gremlinpy.process.__.in_e.",
             DeprecationWarning)
         return cls.in_e(*args)
 
@@ -1210,8 +1210,8 @@ class __(object, metaclass=MagicType):
     @classmethod
     def inV(cls, *args):
         warnings.warn(
-            "gremlin_python.process.__.inV will be replaced by "
-            "gremlin_python.process.__.in_v.",
+            "gremlinpy.process.__.inV will be replaced by "
+            "gremlinpy.process.__.in_v.",
             DeprecationWarning)
         return cls.in_v(*args)
 
@@ -1306,8 +1306,8 @@ class __(object, metaclass=MagicType):
     @classmethod
     def otherV(cls, *args):
         warnings.warn(
-            "gremlin_python.process.__.otherV will be replaced by "
-            "gremlin_python.process.__.other_v.",
+            "gremlinpy.process.__.otherV will be replaced by "
+            "gremlinpy.process.__.other_v.",
             DeprecationWarning)
         return cls.other_v(*args)
 
@@ -1322,8 +1322,8 @@ class __(object, metaclass=MagicType):
     @classmethod
     def outE(cls, *args):
         warnings.warn(
-            "gremlin_python.process.__.outE will be replaced by "
-            "gremlin_python.process.__.out_e.",
+            "gremlinpy.process.__.outE will be replaced by "
+            "gremlinpy.process.__.out_e.",
             DeprecationWarning)
         return cls.out_e(*args)
 
@@ -1334,8 +1334,8 @@ class __(object, metaclass=MagicType):
     @classmethod
     def outV(cls, *args):
         warnings.warn(
-            "gremlin_python.process.__.outV will be replaced by "
-            "gremlin_python.process.__.out_v.",
+            "gremlinpy.process.__.outV will be replaced by "
+            "gremlinpy.process.__.out_v.",
             DeprecationWarning)
         return cls.out_v(*args)
 
@@ -1362,8 +1362,8 @@ class __(object, metaclass=MagicType):
     @classmethod
     def propertyMap(cls, *args):
         warnings.warn(
-            "gremlin_python.process.__.propertyMap will be replaced by "
-            "gremlin_python.process.__.property_map.",
+            "gremlinpy.process.__.propertyMap will be replaced by "
+            "gremlinpy.process.__.property_map.",
             DeprecationWarning)
         return cls.property_map(*args)
 
@@ -1394,8 +1394,8 @@ class __(object, metaclass=MagicType):
     @classmethod
     def sideEffect(cls, *args):
         warnings.warn(
-            "gremlin_python.process.__.sideEffect will be replaced by "
-            "gremlin_python.process.__.side_effect.",
+            "gremlinpy.process.__.sideEffect will be replaced by "
+            "gremlinpy.process.__.side_effect.",
             DeprecationWarning)
         return cls.side_effect(*args)
 
@@ -1406,8 +1406,8 @@ class __(object, metaclass=MagicType):
     @classmethod
     def simplePath(cls, *args):
         warnings.warn(
-            "gremlin_python.process.__.simplePath will be replaced by "
-            "gremlin_python.process.__.simple_path.",
+            "gremlinpy.process.__.simplePath will be replaced by "
+            "gremlinpy.process.__.simple_path.",
             DeprecationWarning)
         return cls.simple_path(*args)
 
@@ -1438,8 +1438,8 @@ class __(object, metaclass=MagicType):
     @classmethod
     def timeLimit(cls, *args):
         warnings.warn(
-            "gremlin_python.process.__.timeLimit will be replaced by "
-            "gremlin_python.process.__.time_limit.",
+            "gremlinpy.process.__.timeLimit will be replaced by "
+            "gremlinpy.process.__.time_limit.",
             DeprecationWarning)
         return cls.time_limit(*args)
 
@@ -1458,8 +1458,8 @@ class __(object, metaclass=MagicType):
     @classmethod
     def toE(cls, *args):
         warnings.warn(
-            "gremlin_python.process.__.toE will be replaced by "
-            "gremlin_python.process.__.to_e.",
+            "gremlinpy.process.__.toE will be replaced by "
+            "gremlinpy.process.__.to_e.",
             DeprecationWarning)
         return cls.to_e(*args)
 
@@ -1470,8 +1470,8 @@ class __(object, metaclass=MagicType):
     @classmethod
     def toV(cls, *args):
         warnings.warn(
-            "gremlin_python.process.__.toV will be replaced by "
-            "gremlin_python.process.__.to_v.",
+            "gremlinpy.process.__.toV will be replaced by "
+            "gremlinpy.process.__.to_v.",
             DeprecationWarning)
         return cls.to_v(*args)
 
@@ -1502,8 +1502,8 @@ class __(object, metaclass=MagicType):
     @classmethod
     def valueMap(cls, *args):
         warnings.warn(
-            "gremlin_python.process.__.valueMap will be replaced by "
-            "gremlin_python.process.__.value_map.",
+            "gremlinpy.process.__.valueMap will be replaced by "
+            "gremlinpy.process.__.value_map.",
             DeprecationWarning)
         return cls.value_map(*args)
 
@@ -1572,8 +1572,8 @@ class Transaction:
     # Allow camelcase function here to keep api consistent with other languages.
     def isOpen(self):
         warnings.warn(
-            "gremlin_python.process.Transaction.isOpen will be replaced by "
-            "gremlin_python.process.Transaction.is_open.",
+            "gremlinpy.process.Transaction.isOpen will be replaced by "
+            "gremlinpy.process.Transaction.is_open.",
             DeprecationWarning)
         return self.is_open()
 

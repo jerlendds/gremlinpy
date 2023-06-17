@@ -18,11 +18,11 @@
 #
 import pytest
 
-from gremlin_python.process.traversal import Bytecode, P
-from gremlin_python.process.graph_traversal import (
+from gremlinpy.process.traversal import Bytecode, P
+from gremlinpy.process.graph_traversal import (
     GraphTraversalSource, GraphTraversal)
-from gremlin_python.process.graph_traversal import __ as AnonymousTraversal
-from gremlin_python.structure.graph import Graph
+from gremlinpy.process.graph_traversal import __ as AnonymousTraversal
+from gremlinpy.structure.graph import Graph
 
 __author__ = 'David M. Brown (davebshow@gmail.com)'
 

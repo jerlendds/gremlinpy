@@ -18,10 +18,10 @@
 #
 import os
 
-from gremlin_python.process.anonymous_traversal import traversal
-from gremlin_python.process.graph_traversal import __
-from gremlin_python.driver import serializer
-from gremlin_python.driver.driver_remote_connection import DriverRemoteConnection
+from gremlinpy.process.anonymous_traversal import traversal
+from gremlinpy.process.graph_traversal import __
+from gremlinpy.driver import serializer
+from gremlinpy.driver.driver_remote_connection import DriverRemoteConnection
 from radish import before, after, world
 
 outV = __.out_v

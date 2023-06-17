@@ -18,19 +18,19 @@
 #
 import os
 
-from gremlin_python import statics
-from gremlin_python.driver.protocol import GremlinServerError
-from gremlin_python.statics import long
-from gremlin_python.process.traversal import Traverser
-from gremlin_python.process.traversal import TraversalStrategy
-from gremlin_python.process.traversal import Bindings
-from gremlin_python.process.traversal import P, Order, T
-from gremlin_python.process.graph_traversal import __
-from gremlin_python.process.anonymous_traversal import traversal
-from gremlin_python.structure.graph import Vertex
-from gremlin_python.process.strategies import SubgraphStrategy, ReservedKeysVerificationStrategy, SeedStrategy
-from gremlin_python.structure.io.util import HashableDict
-from gremlin_python.driver.serializer import GraphSONSerializersV2d0
+from gremlinpy import statics
+from gremlinpy.driver.protocol import GremlinServerError
+from gremlinpy.statics import long
+from gremlinpy.process.traversal import Traverser
+from gremlinpy.process.traversal import TraversalStrategy
+from gremlinpy.process.traversal import Bindings
+from gremlinpy.process.traversal import P, Order, T
+from gremlinpy.process.graph_traversal import __
+from gremlinpy.process.anonymous_traversal import traversal
+from gremlinpy.structure.graph import Vertex
+from gremlinpy.process.strategies import SubgraphStrategy, ReservedKeysVerificationStrategy, SeedStrategy
+from gremlinpy.structure.io.util import HashableDict
+from gremlinpy.driver.serializer import GraphSONSerializersV2d0
 
 __author__ = 'Marko A. Rodriguez (http://markorodriguez.com)'
 

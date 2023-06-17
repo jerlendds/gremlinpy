@@ -15,8 +15,8 @@
 # specific language governing permissions and limitations
 # under the License.
 
-from gremlin_python.process.anonymous_traversal import traversal
-from gremlin_python.driver.driver_remote_connection import DriverRemoteConnection
+from gremlinpy.process.anonymous_traversal import traversal
+from gremlinpy.driver.driver_remote_connection import DriverRemoteConnection
 import json
 
 

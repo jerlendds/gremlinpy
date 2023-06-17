@@ -21,28 +21,30 @@ import asyncio
 import async_timeout
 from aiohttp import ClientResponseError
 
-from gremlin_python.driver.transport import AbstractBaseTransport
+from gremlinpy.driver.transport import AbstractBaseTransport
 
-__author__ = 'Lyndon Bauto (lyndonb@bitquilltech.com)'
+__author__ = 'Lyndon Bauto (lyndonb@bitquilltech.com). Patched by jerlendds (jerlendds@openinfolabs.com)'
 
 
 class AiohttpTransport(AbstractBaseTransport):
     nest_asyncio_applied = False
 
     def __init__(self, call_from_event_loop=None, read_timeout=None, write_timeout=None, **kwargs):
-        if call_from_event_loop is not None and call_from_event_loop and not AiohttpTransport.nest_asyncio_applied:
-            """ 
-                The AiohttpTransport implementation uses the asyncio event loop. Because of this, it cannot be called 
-                within an event loop without nest_asyncio. If the code is ever refactored so that it can be called 
-                within an event loop this import and call can be removed. Without this, applications which use the 
-                event loop to call gremlin-python (such as Jupyter) will not work.
-            """
-            import nest_asyncio
-            nest_asyncio.apply()
-            AiohttpTransport.nest_asyncio_applied = True
+        # Patched to work with my uvloop.Loop - By jerlendds - (https://studium.dev):
+        # if call_from_event_loop is not None and call_from_event_loop and not AiohttpTransport.nest_asyncio_applied:
+        #     """ 
+        #         The AiohttpTransport implementation uses the asyncio event loop. Because of this, it cannot be called 
+        #         within an event loop without nest_asyncio. If the code is ever refactored so that it can be called 
+        #         within an event loop this import and call can be removed. Without this, applications which use the 
+        #         event loop to call gremlin-python (such as Jupyter) will not work.
+        #     """
+        #     import nest_asyncio
+        #     nest_asyncio.apply()
+        #     AiohttpTransport.nest_asyncio_applied = True
 
+        # Patched to work with my uvloop.Loop - By jerlendds - (https://studium.dev):
         # Start event loop and initialize websocket and client to None
-        self._loop = asyncio.new_event_loop()
+        self._loop = asyncio.get_event_loop()
         self._websocket = None
         self._client_session = None
 

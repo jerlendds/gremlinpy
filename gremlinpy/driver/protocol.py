@@ -23,8 +23,8 @@ import struct
 
 # import kerberos    Optional dependency imported in relevant codeblock
 
-from gremlin_python.driver import request
-from gremlin_python.driver.resultset import ResultSet
+from gremlinpy.driver import request
+from gremlinpy.driver.resultset import ResultSet
 
 log = logging.getLogger("gremlinpython")
 

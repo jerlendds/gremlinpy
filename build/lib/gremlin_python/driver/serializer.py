@@ -28,9 +28,9 @@ try:
 except ImportError:
     import json
 
-from gremlin_python.structure.io import graphbinaryV1
-from gremlin_python.structure.io import graphsonV2d0
-from gremlin_python.structure.io import graphsonV3d0
+from gremlinpy.structure.io import graphbinaryV1
+from gremlinpy.structure.io import graphsonV2d0
+from gremlinpy.structure.io import graphsonV3d0
 
 __author__ = 'David M. Brown (davebshow@gmail.com), Lyndon Bauto (lyndonb@bitquilltech.com)'
 

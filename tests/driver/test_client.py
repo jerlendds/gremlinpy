@@ -21,14 +21,14 @@ import os
 import threading
 import uuid
 
-from gremlin_python.driver.client import Client
-from gremlin_python.driver.protocol import GremlinServerError
-from gremlin_python.driver.request import RequestMessage
-from gremlin_python.process.graph_traversal import __
-from gremlin_python.process.strategies import OptionsStrategy
-from gremlin_python.structure.graph import Graph, Vertex
-from gremlin_python.driver.aiohttp.transport import AiohttpTransport
-from gremlin_python.statics import *
+from gremlinpy.driver.client import Client
+from gremlinpy.driver.protocol import GremlinServerError
+from gremlinpy.driver.request import RequestMessage
+from gremlinpy.process.graph_traversal import __
+from gremlinpy.process.strategies import OptionsStrategy
+from gremlinpy.structure.graph import Graph, Vertex
+from gremlinpy.driver.aiohttp.transport import AiohttpTransport
+from gremlinpy.statics import *
 from asyncio import TimeoutError
 
 __author__ = 'David M. Brown (davebshow@gmail.com)'

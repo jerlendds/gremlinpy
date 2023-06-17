@@ -21,10 +21,10 @@ import datetime
 import uuid
 import math
 
-from gremlin_python.statics import timestamp, long, bigint, BigDecimal, SingleByte, SingleChar, ByteBufferType
-from gremlin_python.structure.graph import Vertex, Edge, Property, VertexProperty, Path
-from gremlin_python.structure.io.graphbinaryV1 import GraphBinaryWriter, GraphBinaryReader
-from gremlin_python.process.traversal import Barrier, Binding, Bytecode, Merge, Direction
+from gremlinpy.statics import timestamp, long, bigint, BigDecimal, SingleByte, SingleChar, ByteBufferType
+from gremlinpy.structure.graph import Vertex, Edge, Property, VertexProperty, Path
+from gremlinpy.structure.io.graphbinaryV1 import GraphBinaryWriter, GraphBinaryReader
+from gremlinpy.process.traversal import Barrier, Binding, Bytecode, Merge, Direction
 
 
 class TestGraphBinaryReader(object):

@@ -15,10 +15,61 @@
 .. specific language governing permissions and limitations
 .. under the License.
 
+=================================
+Apache TinkerPop - Gremlin Python - *Patched by [jerlendds](https://github.com/jerlendds)*  
+=================================
 
-=================================
-Apache TinkerPop - Gremlin Python
-=================================
+Message from jerlendds:  
+
+1. I changed the package name to `gremlinpy` so my imports aren't so long
+
+2. I was trying to use the `gremlin-python` [PyPi package](https://pypi.org/project/gremlinpython/) inside [a FastAPI web app](https://github.com/jerlendds/osintbuddy) but I was running into an issue with this library trying to create a new event loop object by calling `asyncio.new_event_loop()`, this can be seen in the following snippet:  
+  
+  ```py
+      def __init__(self, call_from_event_loop=None, read_timeout=None, write_timeout=None, **kwargs):
+          if call_from_event_loop is not None and call_from_event_loop and not AiohttpTransport.nest_asyncio_applied:
+              """ 
+                  The AiohttpTransport implementation uses the asyncio event loop. Because of this, it cannot be called 
+                  within an event loop without nest_asyncio. If the code is ever refactored so that it can be called 
+                  within an event loop this import and call can be removed. Without this, applications which use the 
+                  event loop to call gremlin-python (such as Jupyter) will not work.
+              """
+              import nest_asyncio
+              nest_asyncio.apply()
+              AiohttpTransport.nest_asyncio_applied = True
+  
+          # Start event loop and initialize websocket and client to None
+          self._loop = asyncio.new_event_loop()
+          self._websocket = None
+          self._client_session = None
+  ```
+  
+  
+This is a quick and dirty fix to instead get the existing loop. In the future I may update this patch to detect an existing loop or something and choose what to do based on that, but currently the change looks like:  
+  
+  ```py
+  # file: gremlinpy/driver/aiohttp/transport.py
+      def __init__(self, call_from_event_loop=None, read_timeout=None, write_timeout=None, **kwargs):
+          # Patched to work with my uvloop.Loop - By jerlendds - (https://studium.dev):
+          # if call_from_event_loop is not None and call_from_event_loop and not AiohttpTransport.nest_asyncio_applied:
+          #     """ 
+          #         The AiohttpTransport implementation uses the asyncio event loop. Because of this, it cannot be called 
+          #         within an event loop without nest_asyncio. If the code is ever refactored so that it can be called 
+          #         within an event loop this import and call can be removed. Without this, applications which use the 
+          #         event loop to call gremlin-python (such as Jupyter) will not work.
+          #     """
+          #     import nest_asyncio
+          #     nest_asyncio.apply()
+          #     AiohttpTransport.nest_asyncio_applied = True
+  
+          # Patched to work with my uvloop.Loop - By jerlendds - (https://studium.dev):
+          # Start event loop and initialize websocket and client to None
+          self._loop = asyncio.get_event_loop()
+          self._websocket = None
+          self._client_session = None
+  ```
+
+
 
 `Apache TinkerPop™ <https://tinkerpop.apache.org>`_
 is a graph computing framework for both graph databases (OLTP) and
@@ -41,8 +92,8 @@ protocols by which Gremlin-Python can connect.
 A typical connection to a server running on "localhost" that supports the Gremlin Server protocol using websockets
 from the Python shell looks like this:
 
-    >>> from gremlin_python.process.anonymous_traversal import traversal
-    >>> from gremlin_python.driver.driver_remote_connection import DriverRemoteConnection
+    >>> from gremlinpy.process.anonymous_traversal import traversal
+    >>> from gremlinpy.driver.driver_remote_connection import DriverRemoteConnection
     >>> g = traversal().with_remote(DriverRemoteConnection('ws://localhost:8182/gremlin','g'))
 
 Once "g" has been created using a connection, it is then possible to start writing Gremlin traversals to query the
@@ -77,8 +128,8 @@ Create Vertex
 
 .. code:: python
 
-    from gremlin_python.process.traversal import T
-    from gremlin_python.process.traversal import Cardinality
+    from gremlinpy.process.traversal import T
+    from gremlinpy.process.traversal import Cardinality
 
     id = T.id
     single = Cardinality.single
@@ -109,7 +160,7 @@ Update Vertex
 
 .. code:: python
 
-    from gremlin_python.process.traversal import Cardinality
+    from gremlinpy.process.traversal import Cardinality
 
     single = Cardinality.single
 

@@ -20,11 +20,11 @@ import logging
 from concurrent.futures import Future
 import warnings
 
-from gremlin_python.driver import client, serializer
-from gremlin_python.driver.remote_connection import (
+from gremlinpy.driver import client, serializer
+from gremlinpy.driver.remote_connection import (
     RemoteConnection, RemoteTraversal)
-from gremlin_python.process.strategies import OptionsStrategy
-from gremlin_python.process.traversal import Bytecode
+from gremlinpy.process.strategies import OptionsStrategy
+from gremlinpy.process.traversal import Bytecode
 import uuid
 
 log = logging.getLogger("gremlinpython")
@@ -107,8 +107,8 @@ class DriverRemoteConnection(RemoteConnection):
 
     def submitAsync(self, message, bindings=None, request_options=None):
         warnings.warn(
-            "gremlin_python.driver.driver_remote_connection.DriverRemoteConnection.submitAsync will be replaced by "
-            "gremlin_python.driver.driver_remote_connection.DriverRemoteConnection.submit_async.",
+            "gremlinpy.driver.driver_remote_connection.DriverRemoteConnection.submitAsync will be replaced by "
+            "gremlinpy.driver.driver_remote_connection.DriverRemoteConnection.submit_async.",
             DeprecationWarning)
         self.submit_async(message, bindings, request_options)
 

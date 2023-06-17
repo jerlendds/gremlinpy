@@ -23,13 +23,13 @@ import os
 import pytest
 from pytest import fail
 
-from gremlin_python.driver import serializer
-from gremlin_python.driver.driver_remote_connection import DriverRemoteConnection
-from gremlin_python.structure.graph import Graph
-from gremlin_python.process.anonymous_traversal import traversal
-from gremlin_python.process.traversal import P, Direction
-from gremlin_python.process.traversal import Binding, Bindings
-from gremlin_python.process.graph_traversal import __
+from gremlinpy.driver import serializer
+from gremlinpy.driver.driver_remote_connection import DriverRemoteConnection
+from gremlinpy.structure.graph import Graph
+from gremlinpy.process.anonymous_traversal import traversal
+from gremlinpy.process.traversal import P, Direction
+from gremlinpy.process.traversal import Binding, Bindings
+from gremlinpy.process.graph_traversal import __
 
 gremlin_server_url = os.environ.get('GREMLIN_SERVER_URL', 'ws://localhost:{}/gremlin')
 anonymous_url = gremlin_server_url.format(45940)

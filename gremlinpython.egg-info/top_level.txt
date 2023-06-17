@@ -1,1 +1,1 @@
-gremlin_python
+gremlinpy

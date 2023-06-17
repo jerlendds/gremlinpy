@@ -25,11 +25,11 @@
 
 
 from radish import world
-from gremlin_python.process.anonymous_traversal import traversal
-from gremlin_python.process.traversal import TraversalStrategy
-from gremlin_python.process.graph_traversal import __
-from gremlin_python.structure.graph import Graph
-from gremlin_python.process.traversal import Barrier, Cardinality, P, TextP, Pop, Scope, Column, Order, Direction, Merge, T, Pick, Operator, IO, WithOptions
+from gremlinpy.process.anonymous_traversal import traversal
+from gremlinpy.process.traversal import TraversalStrategy
+from gremlinpy.process.graph_traversal import __
+from gremlinpy.structure.graph import Graph
+from gremlinpy.process.traversal import Barrier, Cardinality, P, TextP, Pop, Scope, Column, Order, Direction, Merge, T, Pick, Operator, IO, WithOptions
 
 world.gremlins = {
     'g_V_branchXlabel_eq_person__a_bX_optionXa__ageX_optionXb__langX_optionXb__nameX': [(lambda g, l1=None:g.V().branch(l1).option('a',__.age).option('b',__.lang).option('b',__.name))], 

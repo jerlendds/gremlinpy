@@ -21,8 +21,8 @@ import warnings
 import queue
 from concurrent.futures import ThreadPoolExecutor
 
-from gremlin_python.driver import connection, protocol, request, serializer
-from gremlin_python.process import traversal
+from gremlinpy.driver import connection, protocol, request, serializer
+from gremlinpy.process import traversal
 
 log = logging.getLogger("gremlinpython")
 
@@ -62,7 +62,7 @@ class Client:
         self._session_enabled = (session is not None and session != "")
         if transport_factory is None:
             try:
-                from gremlin_python.driver.aiohttp.transport import (
+                from gremlinpy.driver.aiohttp.transport import (
                     AiohttpTransport)
             except ImportError:
                 raise Exception("Please install AIOHTTP or pass "
@@ -155,8 +155,8 @@ class Client:
 
     def submitAsync(self, message, bindings=None, request_options=None):
         warnings.warn(
-            "gremlin_python.driver.client.Client.submitAsync will be replaced by "
-            "gremlin_python.driver.client.Client.submit_async.",
+            "gremlinpy.driver.client.Client.submitAsync will be replaced by "
+            "gremlinpy.driver.client.Client.submit_async.",
             DeprecationWarning)
         return self.submit_async(message, bindings, request_options)
 

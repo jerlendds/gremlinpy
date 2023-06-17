@@ -29,11 +29,11 @@ from datetime import timedelta
 from aenum import Enum
 from isodate import parse_duration, duration_isoformat
 
-from gremlin_python import statics
-from gremlin_python.statics import FloatType, FunctionType, IntType, LongType, TypeType, SingleByte, ByteBufferType, SingleChar
-from gremlin_python.process.traversal import Binding, Bytecode, P, TextP, Traversal, Traverser, TraversalStrategy
-from gremlin_python.structure.graph import Edge, Property, Vertex, VertexProperty, Path
-from gremlin_python.structure.io.util import SymbolUtil
+from gremlinpy import statics
+from gremlinpy.statics import FloatType, FunctionType, IntType, LongType, TypeType, SingleByte, ByteBufferType, SingleChar
+from gremlinpy.process.traversal import Binding, Bytecode, P, TextP, Traversal, Traverser, TraversalStrategy
+from gremlinpy.structure.graph import Edge, Property, Vertex, VertexProperty, Path
+from gremlinpy.structure.io.util import SymbolUtil
 
 # When we fall back to a superclass's serializer, we iterate over this map.
 # We want that iteration order to be consistent, so we use an OrderedDict,

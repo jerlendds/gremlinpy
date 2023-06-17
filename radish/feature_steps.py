@@ -19,11 +19,11 @@
 
 import json
 import re
-from gremlin_python.statics import long
-from gremlin_python.structure.graph import Path, Vertex
-from gremlin_python.process.anonymous_traversal import traversal
-from gremlin_python.process.graph_traversal import __
-from gremlin_python.process.traversal import Barrier, Cardinality, P, TextP, Pop, Scope, Column, Order, Direction, T, \
+from gremlinpy.statics import long
+from gremlinpy.structure.graph import Path, Vertex
+from gremlinpy.process.anonymous_traversal import traversal
+from gremlinpy.process.graph_traversal import __
+from gremlinpy.process.traversal import Barrier, Cardinality, P, TextP, Pop, Scope, Column, Order, Direction, T, \
     Pick, Operator, IO, WithOptions, Merge
 from radish import given, when, then, world
 from hamcrest import *

@@ -22,9 +22,9 @@ import sys
 import queue
 from threading import Thread
 
-from gremlin_python.driver.driver_remote_connection import (
+from gremlinpy.driver.driver_remote_connection import (
     DriverRemoteConnection)
-from gremlin_python.process.anonymous_traversal import traversal
+from gremlinpy.process.anonymous_traversal import traversal
 
 __author__ = 'David M. Brown (davebshow@gmail.com)'
 

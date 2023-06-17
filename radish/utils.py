@@ -17,8 +17,8 @@
 # under the License.
 #
 
-from gremlin_python.process.anonymous_traversal import traversal
-from gremlin_python.process.graph_traversal import __
+from gremlinpy.process.anonymous_traversal import traversal
+from gremlinpy.process.graph_traversal import __
 from radish import pick
 
 

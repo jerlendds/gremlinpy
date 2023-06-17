@@ -24,11 +24,11 @@ sent to any TinkerPop compliant HTTP endpoint.
 """
 __author__ = 'Kelvin R. Lawrence (gfxman)'
 
-from gremlin_python.process.graph_traversal import __
-from gremlin_python.process.anonymous_traversal import traversal
-from gremlin_python.process.traversal import *
-from gremlin_python.driver.driver_remote_connection import DriverRemoteConnection
-from gremlin_python.process.strategies import *
+from gremlinpy.process.graph_traversal import __
+from gremlinpy.process.anonymous_traversal import traversal
+from gremlinpy.process.traversal import *
+from gremlinpy.driver.driver_remote_connection import DriverRemoteConnection
+from gremlinpy.process.strategies import *
 from datetime import datetime
 
 

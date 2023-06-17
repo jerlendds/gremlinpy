@@ -19,9 +19,9 @@
 
 __author__ = 'Stephen Mallette (http://stephen.genoprime.com)'
 
-from gremlin_python.structure.graph import Graph
-from gremlin_python.process.graph_traversal import GraphTraversalSource
-from gremlin_python.process.traversal import TraversalStrategies
+from gremlinpy.structure.graph import Graph
+from gremlinpy.process.graph_traversal import GraphTraversalSource
+from gremlinpy.process.traversal import TraversalStrategies
 from .. import statics
 
 import warnings
@@ -38,8 +38,8 @@ class AnonymousTraversalSource(object):
 
     def withGraph(self, graph):
         warnings.warn(
-            "gremlin_python.process.AnonymousTraversalSource.withGraph will be replaced by "
-            "gremlin_python.process.AnonymousTraversalSource.with_graph.",
+            "gremlinpy.process.AnonymousTraversalSource.withGraph will be replaced by "
+            "gremlinpy.process.AnonymousTraversalSource.with_graph.",
             DeprecationWarning)
         return self.with_graph(graph)
 
@@ -48,8 +48,8 @@ class AnonymousTraversalSource(object):
 
     def withRemote(self, remote_connection):
         warnings.warn(
-            "gremlin_python.process.AnonymousTraversalSource.withRemote will be replaced by "
-            "gremlin_python.process.AnonymousTraversalSource.with_remote.",
+            "gremlinpy.process.AnonymousTraversalSource.withRemote will be replaced by "
+            "gremlinpy.process.AnonymousTraversalSource.with_remote.",
             DeprecationWarning)
         return self.with_remote(remote_connection)
 

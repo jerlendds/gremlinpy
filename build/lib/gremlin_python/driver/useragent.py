@@ -22,7 +22,7 @@ import platform
 def _generate_user_agent():
     application_name = "NotAvailable"
     try:
-        from gremlin_python import __version__
+        from gremlinpy import __version__
         driver_version = __version__.version.replace(" ", "_")
     except ImportError:
         driver_version = "NotAvailable"

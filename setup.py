@@ -26,7 +26,7 @@ from setuptools import setup
 root = os.path.dirname(os.path.abspath(__file__))
 
 # Path to __version__ module
-version_file = os.path.join(root, 'gremlin_python', '__version__.py')
+version_file = os.path.join(root, 'gremlinpy', '__version__.py')
 
 # Check if this is a source distribution.
 # If not create the __version__ module containing the version
@@ -40,7 +40,7 @@ if not os.path.exists(os.path.join(root, 'PKG-INFO')):
     fd.write('timestamp = %d\n' % timestamp)
     fd.close()
 # Load version
-from gremlin_python import __version__
+from gremlinpy import __version__
 
 version = __version__.version
 
@@ -56,14 +56,14 @@ if sys.version_info < (3, 5):
     install_requires += ['pyparsing>=2.4.7,<3.0.0']
 
 setup(
-    name='gremlinpython',
+    name='gremlinpy',
     version=version,
-    packages=['gremlin_python', 'gremlin_python.driver',
-              'gremlin_python.driver.aiohttp', 'gremlin_python.process',
-              'gremlin_python.structure', 'gremlin_python.structure.io'],
+    packages=['gremlinpy', 'gremlinpy.driver',
+              'gremlinpy.driver.aiohttp', 'gremlinpy.process',
+              'gremlinpy.structure', 'gremlinpy.structure.io'],
     license='Apache 2',
     url='http://tinkerpop.apache.org',
-    description='Gremlin-Python for Apache TinkerPop',
+    description='Gremlin-Python for Apache TinkerPop. Patched by jerlendds to work with an existing event loop.',
     long_description=codecs.open("README.rst", "r", "UTF-8").read(),
     long_description_content_type='text/x-rst',
     test_suite="tests",

@@ -28,13 +28,13 @@ from decimal import *
 
 from mock import Mock
 
-from gremlin_python.statics import *
-from gremlin_python.structure.graph import Vertex, Edge, Property, VertexProperty, Path
-from gremlin_python.structure.io.graphsonV3d0 import GraphSONWriter, GraphSONReader, GraphSONUtil
-import gremlin_python.structure.io.graphsonV3d0
-from gremlin_python.process.traversal import P, Merge, Barrier, Order, Operator, Direction
-from gremlin_python.process.strategies import SubgraphStrategy
-from gremlin_python.process.graph_traversal import __
+from gremlinpy.statics import *
+from gremlinpy.structure.graph import Vertex, Edge, Property, VertexProperty, Path
+from gremlinpy.structure.io.graphsonV3d0 import GraphSONWriter, GraphSONReader, GraphSONUtil
+import gremlinpy.structure.io.graphsonV3d0
+from gremlinpy.process.traversal import P, Merge, Barrier, Order, Operator, Direction
+from gremlinpy.process.strategies import SubgraphStrategy
+from gremlinpy.process.graph_traversal import __
 
 
 class TestGraphSONReader(object):
@@ -266,7 +266,7 @@ class TestGraphSONReader(object):
         assert type_string in reader.deserializers
 
         # base dicts are not modified
-        assert type_string not in gremlin_python.structure.io.graphsonV3d0._deserializers
+        assert type_string not in gremlinpy.structure.io.graphsonV3d0._deserializers
 
         x = X()
         o = reader.to_object({GraphSONUtil.TYPE_KEY: type_string, GraphSONUtil.VALUE_KEY: x})
@@ -277,7 +277,7 @@ class TestGraphSONReader(object):
         type_string = "g:Int64"
         serdes = Mock()
         reader = GraphSONReader(deserializer_map={type_string: serdes, override_string: serdes})
-        assert gremlin_python.structure.io.graphsonV3d0._deserializers[type_string] is not reader.deserializers[
+        assert gremlinpy.structure.io.graphsonV3d0._deserializers[type_string] is not reader.deserializers[
             type_string]
 
         value = 3
@@ -484,7 +484,7 @@ class TestGraphSONWriter(object):
         assert X in writer.serializers
 
         # base dicts are not modified
-        assert X not in gremlin_python.structure.io.graphsonV3d0._serializers
+        assert X not in gremlinpy.structure.io.graphsonV3d0._serializers
 
         obj = X()
         d = writer.to_dict(obj)
@@ -494,7 +494,7 @@ class TestGraphSONWriter(object):
         # overridden mapping
         serdes = Mock()
         writer = GraphSONWriter(serializer_map={int: serdes})
-        assert gremlin_python.structure.io.graphsonV3d0._serializers[int] is not writer.serializers[int]
+        assert gremlinpy.structure.io.graphsonV3d0._serializers[int] is not writer.serializers[int]
 
         value = 3
         d = writer.to_dict(value)

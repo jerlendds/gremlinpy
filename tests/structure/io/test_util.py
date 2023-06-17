@@ -17,7 +17,7 @@
 # under the License.
 #
 
-from gremlin_python.structure.io.util import SymbolUtil
+from gremlinpy.structure.io.util import SymbolUtil
 
 
 class TestSymbolUtil(object):

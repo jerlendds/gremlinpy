@@ -20,9 +20,9 @@ under the License.
 import datetime
 import uuid
 
-from gremlin_python.driver.serializer import GraphSONSerializersV2d0, GraphBinarySerializersV1
-from gremlin_python.structure.graph import Graph
-from gremlin_python.statics import *
+from gremlinpy.driver.serializer import GraphSONSerializersV2d0, GraphBinarySerializersV1
+from gremlinpy.structure.graph import Graph
+from gremlinpy.statics import *
 
 
 def test_vertex(remote_connection):

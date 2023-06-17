@@ -18,7 +18,7 @@
 #
 import abc
 
-from gremlin_python.process import traversal
+from gremlinpy.process import traversal
 
 __author__ = 'Marko A. Rodriguez (http://markorodriguez.com), Lyndon Bauto (lyndonb@bitquilltech.com)'
 

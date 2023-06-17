@@ -19,10 +19,10 @@
 
 __author__ = 'Marko A. Rodriguez (http://markorodriguez.com)'
 
-from gremlin_python import statics
-from gremlin_python.process.traversal import Cardinality
-from gremlin_python.process.traversal import P
-from gremlin_python.process.traversal import Pop
+from gremlinpy import statics
+from gremlinpy.process.traversal import Cardinality
+from gremlinpy.process.traversal import P
+from gremlinpy.process.traversal import Pop
 
 
 class TestStatics(object):

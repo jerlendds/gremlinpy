@@ -19,12 +19,12 @@
 
 __author__ = 'Marko A. Rodriguez (http://markorodriguez.com)'
 
-from gremlin_python.statics import long
-from gremlin_python.structure.graph import Edge
-from gremlin_python.structure.graph import Property
-from gremlin_python.structure.graph import Vertex
-from gremlin_python.structure.graph import VertexProperty
-from gremlin_python.structure.graph import Path
+from gremlinpy.statics import long
+from gremlinpy.structure.graph import Edge
+from gremlinpy.structure.graph import Property
+from gremlinpy.structure.graph import Vertex
+from gremlinpy.structure.graph import VertexProperty
+from gremlinpy.structure.graph import Path
 
 
 class TestGraph(object):

@@ -21,7 +21,7 @@ import asyncio
 import async_timeout
 from aiohttp import ClientResponseError
 
-from gremlin_python.driver.transport import AbstractBaseTransport
+from gremlinpy.driver.transport import AbstractBaseTransport
 
 __author__ = 'Lyndon Bauto (lyndonb@bitquilltech.com)'
 

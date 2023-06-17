@@ -56,8 +56,8 @@ class Traversal(object):
 
     def toList(self):
         warnings.warn(
-            "gremlin_python.process.Traversal.toList will be replaced by "
-            "gremlin_python.process.Traversal.to_list.",
+            "gremlinpy.process.Traversal.toList will be replaced by "
+            "gremlinpy.process.Traversal.to_list.",
             DeprecationWarning)
         return self.to_list()
 
@@ -66,8 +66,8 @@ class Traversal(object):
 
     def toSet(self):
         warnings.warn(
-            "gremlin_python.process.Traversal.toSet will be replaced by "
-            "gremlin_python.process.Traversal.to_set.",
+            "gremlinpy.process.Traversal.toSet will be replaced by "
+            "gremlinpy.process.Traversal.to_set.",
             DeprecationWarning)
         return self.to_set()
 
@@ -82,8 +82,8 @@ class Traversal(object):
 
     def nextTraverser(self):
         warnings.warn(
-            "gremlin_python.process.Traversal.nextTraverser will be replaced by "
-            "gremlin_python.process.Traversal.next_traverser.",
+            "gremlinpy.process.Traversal.nextTraverser will be replaced by "
+            "gremlinpy.process.Traversal.next_traverser.",
             DeprecationWarning)
         return self.next_traverser()
 
@@ -99,8 +99,8 @@ class Traversal(object):
 
     def hasNext(self):
         warnings.warn(
-            "gremlin_python.process.Traversal.hasNext will be replaced by "
-            "gremlin_python.process.Traversal.has_next.",
+            "gremlinpy.process.Traversal.hasNext will be replaced by "
+            "gremlinpy.process.Traversal.has_next.",
             DeprecationWarning)
         return self.has_next()
 
@@ -416,8 +416,8 @@ class TextP(P):
     @staticmethod
     def endingWith(*args):
         warnings.warn(
-            "gremlin_python.process.TextP.endingWith will be replaced by "
-            "gremlin_python.process.TextP.ending_with.",
+            "gremlinpy.process.TextP.endingWith will be replaced by "
+            "gremlinpy.process.TextP.ending_with.",
             DeprecationWarning)
         return TextP("endingWith", *args)
 
@@ -428,8 +428,8 @@ class TextP(P):
     @staticmethod
     def notContaining(*args):
         warnings.warn(
-            "gremlin_python.process.TextP.notContaining will be replaced by "
-            "gremlin_python.process.TextP.not_containing.",
+            "gremlinpy.process.TextP.notContaining will be replaced by "
+            "gremlinpy.process.TextP.not_containing.",
             DeprecationWarning)
         return TextP("notContaining", *args)
 
@@ -440,8 +440,8 @@ class TextP(P):
     @staticmethod
     def notEndingWith(*args):
         warnings.warn(
-            "gremlin_python.process.TextP.notEndingWith will be replaced by "
-            "gremlin_python.process.TextP.not_ending_with.",
+            "gremlinpy.process.TextP.notEndingWith will be replaced by "
+            "gremlinpy.process.TextP.not_ending_with.",
             DeprecationWarning)
         return TextP("notEndingWith", *args)
 
@@ -452,8 +452,8 @@ class TextP(P):
     @staticmethod
     def notStartingWith(*args):
         warnings.warn(
-            "gremlin_python.process.TextP.notStartingWith will be replaced by "
-            "gremlin_python.process.TextP.not_starting_With.",
+            "gremlinpy.process.TextP.notStartingWith will be replaced by "
+            "gremlinpy.process.TextP.not_starting_With.",
             DeprecationWarning)
         return TextP("notStartingWith", *args)
 
@@ -464,8 +464,8 @@ class TextP(P):
     @staticmethod
     def startingWith(*args):
         warnings.warn(
-            "gremlin_python.process.TextP.startingWith will be replaced by "
-            "gremlin_python.process.TextP.startingWith.",
+            "gremlinpy.process.TextP.startingWith will be replaced by "
+            "gremlinpy.process.TextP.startingWith.",
             DeprecationWarning)
         return TextP("startingWith", *args)
 

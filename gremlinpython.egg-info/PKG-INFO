@@ -56,8 +56,8 @@ protocols by which Gremlin-Python can connect.
 A typical connection to a server running on "localhost" that supports the Gremlin Server protocol using websockets
 from the Python shell looks like this:
 
-    >>> from gremlin_python.process.anonymous_traversal import traversal
-    >>> from gremlin_python.driver.driver_remote_connection import DriverRemoteConnection
+    >>> from gremlinpy.process.anonymous_traversal import traversal
+    >>> from gremlinpy.driver.driver_remote_connection import DriverRemoteConnection
     >>> g = traversal().with_remote(DriverRemoteConnection('ws://localhost:8182/gremlin','g'))
 
 Once "g" has been created using a connection, it is then possible to start writing Gremlin traversals to query the
@@ -92,8 +92,8 @@ Create Vertex
 
 .. code:: python
 
-    from gremlin_python.process.traversal import T
-    from gremlin_python.process.traversal import Cardinality
+    from gremlinpy.process.traversal import T
+    from gremlinpy.process.traversal import Cardinality
 
     id = T.id
     single = Cardinality.single
@@ -124,7 +124,7 @@ Update Vertex
 
 .. code:: python
 
-    from gremlin_python.process.traversal import Cardinality
+    from gremlinpy.process.traversal import Cardinality
 
     single = Cardinality.single
 

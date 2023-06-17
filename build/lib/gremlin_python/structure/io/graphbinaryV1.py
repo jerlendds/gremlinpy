@@ -29,16 +29,16 @@ import logging
 from struct import pack, unpack
 from aenum import Enum
 from datetime import timedelta
-from gremlin_python import statics
-from gremlin_python.statics import FloatType, BigDecimal, FunctionType, ShortType, IntType, LongType, BigIntType, \
+from gremlinpy import statics
+from gremlinpy.statics import FloatType, BigDecimal, FunctionType, ShortType, IntType, LongType, BigIntType, \
                                    TypeType, DictType, ListType, SetType, SingleByte, ByteBufferType, GremlinType, \
                                    SingleChar
-from gremlin_python.process.traversal import Barrier, Binding, Bytecode, Cardinality, Column, Direction, Merge, \
+from gremlinpy.process.traversal import Barrier, Binding, Bytecode, Cardinality, Column, Direction, Merge, \
                                              Operator, Order, Pick, Pop, P, Scope, TextP, Traversal, Traverser, \
                                              TraversalStrategy, T
-from gremlin_python.process.graph_traversal import GraphTraversal
-from gremlin_python.structure.graph import Graph, Edge, Property, Vertex, VertexProperty, Path
-from gremlin_python.structure.io.util import HashableDict, SymbolUtil
+from gremlinpy.process.graph_traversal import GraphTraversal
+from gremlinpy.structure.graph import Graph, Edge, Property, Vertex, VertexProperty, Path
+from gremlinpy.structure.io.util import HashableDict, SymbolUtil
 
 log = logging.getLogger(__name__)
 

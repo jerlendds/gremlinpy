@@ -21,9 +21,9 @@ Unit tests for the Translator Class.
 """
 __author__ = 'Kelvin R. Lawrence (gfxman)'
 
-from gremlin_python.structure.graph import Graph
-from gremlin_python.process.graph_traversal import __
-from gremlin_python.process.translator import *
+from gremlinpy.structure.graph import Graph
+from gremlinpy.process.graph_traversal import __
+from gremlinpy.process.translator import *
 from datetime import datetime
 
 

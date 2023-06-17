@@ -16,9 +16,9 @@
 # specific language governing permissions and limitations
 # under the License.
 #
-from gremlin_python.structure.io import graphsonV2d0
-from gremlin_python.structure.io import graphsonV3d0
-from gremlin_python.structure.io import graphbinaryV1
+from gremlinpy.structure.io import graphsonV2d0
+from gremlinpy.structure.io import graphsonV3d0
+from gremlinpy.structure.io import graphbinaryV1
 
 
 __author__ = 'David M. Brown'

@@ -18,7 +18,7 @@ import uuid
 import queue
 from concurrent.futures import Future
 
-from gremlin_python.driver import resultset, useragent
+from gremlinpy.driver import resultset, useragent
 
 __author__ = 'David M. Brown (davebshow@gmail.com)'
 
