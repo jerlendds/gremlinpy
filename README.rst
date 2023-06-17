@@ -21,6 +21,14 @@ Apache TinkerPop - Gremlin Python
 
 *Patched by [jerlendds](https://github.com/jerlendds)*:
 
+
+Installation:
+
+.. code:: bash
+
+  pip install git+https://github.com/jerlendds/gremlinpy
+
+
 1. I changed the package name to `gremlinpy` so my imports aren't so long
 
 2. I was trying to use the `gremlin-python` [PyPi package](https://pypi.org/project/gremlinpython/) inside [a FastAPI web app](https://github.com/jerlendds/osintbuddy) but I was running into an issue with this library trying to create a new event loop object by calling `asyncio.new_event_loop()`, this can be seen in the following snippet:  
