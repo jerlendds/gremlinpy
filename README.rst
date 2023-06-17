@@ -19,7 +19,7 @@
 Apache TinkerPop - Gremlin Python 
 =================================
 
- *Patched by [jerlendds](https://github.com/jerlendds)*:
+*Patched by [jerlendds](https://github.com/jerlendds)*:
 
 1. I changed the package name to `gremlinpy` so my imports aren't so long
 
