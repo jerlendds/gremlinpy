@@ -22,11 +22,11 @@ def error_handler(fn):
 class ResultSet:
     """Gremlin Server response implementated as an async iterator."""
     def __init__(self, request_id, timeout, loop):
-        self._response_queue = asyncio.Queue(loop=loop)
+        self._response_queue = asyncio.Queue()
         self._request_id = request_id
         self._loop = loop
         self._timeout = timeout
-        self._done = asyncio.Event(loop=self._loop)
+        self._done = asyncio.Event()
         self._aggregate_to = None
 
     @property
