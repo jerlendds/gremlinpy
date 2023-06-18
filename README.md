@@ -59,12 +59,6 @@ async def some_async_function(plugin_label):
         json_graph: List[dict] = process_vertices(vertices)
         print(json_graph)
 
-    plugin = await Registry.get_plugin(plugin_label=plugin_label)
-    if plugin is not None:
-        labels = plugin().transform_labels
-    else:
-        labels = []
-    return labels
 ```
 
 
