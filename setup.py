@@ -1,93 +1,65 @@
-"""
-Licensed to the Apache Software Foundation (ASF) under one
-or more contributor license agreements.  See the NOTICE file
-distributed with this work for additional information
-regarding copyright ownership.  The ASF licenses this file
-to you under the Apache License, Version 2.0 (the
-"License"); you may not use this file except in compliance
-with the License.  You may obtain a copy of the License at
-
-http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing,
-software distributed under the License is distributed on an
-"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-KIND, either express or implied.  See the License for the
-specific language governing permissions and limitations
-under the License.
-"""
-import codecs
 import os
-import sys
-import time
+import pip
 from setuptools import setup
 
-# Folder containing the setup.py
-root = os.path.dirname(os.path.abspath(__file__))
+__author__ = 'Jeffrey Phillips Freeman'
+__email__ = 'Jeffrey.Freeman@CleverThis.com'
+__license__ = 'Apache License, Version 2.0'
+__copyright__ = 'Copyright 2017, CleverThis, Inc. and contributors'
+__credits__ = ['David M. Brown - Project founder']
 
-# Path to __version__ module
-version_file = os.path.join(root, 'gremlinpy', '__version__.py')
-
-# Check if this is a source distribution.
-# If not create the __version__ module containing the version
-if not os.path.exists(os.path.join(root, 'PKG-INFO')):
-    timestamp = int(os.getenv('TIMESTAMP', time.time() * 1000)) / 1000
-    fd = codecs.open(version_file, 'w', 'utf-8')
-    fd.write("'''")
-    fd.write(__doc__)
-    fd.write("'''\n")
-    fd.write('version   = %r\n' % os.getenv('VERSION', '0.0.1').replace('-SNAPSHOT', '.dev-%d' % timestamp))
-    fd.write('timestamp = %d\n' % timestamp)
-    fd.close()
-# Load version
-from gremlinpy import __version__
-
-version = __version__.version
-
-install_requires = [
-    'nest_asyncio',
-    'aiohttp>=3.8.0,<4.0.0',
-    'aenum>=1.4.5,<4.0.0',
-    'six>=1.10.0,<2.0.0',
-    'isodate>=0.6.0,<1.0.0'
-]
-
-if sys.version_info < (3, 5):
-    install_requires += ['pyparsing>=2.4.7,<3.0.0']
+with open("README.md", "r") as fh:
+    long_description = fh.read()
 
 setup(
-    name='gremlinpy',
-    version=version,
-    packages=['gremlinpy', 'gremlinpy.driver',
-              'gremlinpy.driver.aiohttp', 'gremlinpy.process',
-              'gremlinpy.structure', 'gremlinpy.structure.io'],
-    license='Apache 2',
-    url='http://tinkerpop.apache.org',
-    description='Gremlin-Python for Apache TinkerPop. Patched by jerlendds to work with an existing event loop.',
-    long_description=codecs.open("README.rst", "r", "UTF-8").read(),
-    long_description_content_type='text/x-rst',
-    test_suite="tests",
-    data_files=[("", ["LICENSE", "NOTICE"])],
-    setup_requires=[
-        'pytest-runner==6.0.0',
-        'importlib-metadata<5.0.0'
+    name='aiogremlin',
+    version='3.3.5',
+    license=__license__,
+    author=__author__,
+    author_email=__email__,
+    description='An asynchronous DSL for the Gremlin-Python driver',
+    long_description_content_type="text/markdown",
+    long_description=long_description,
+    url='http://goblin-ogm.com',
+    download_url='https://github.com/goblin-ogm/aiogremlin/archive/v3.3.5.tar.gz',
+    include_package_data=True,
+    keywords=['Tinkerpop', 'Tinkerpop3', 'gremlin', 'gremlin-python', 'asyncio', 'graphdb'],
+    packages=['aiogremlin',
+              'aiogremlin.driver',
+              'aiogremlin.driver.aiohttp',
+              'aiogremlin.process',
+              'aiogremlin.structure',
+              'aiogremlin.remote'],
+    python_requires='>=3.5',
+    install_requires=[
+        'gremlinpython<=3.4.3',
+        'aenum>=1.4.5',  # required gremlinpython dep
+        'aiohttp>=2.2.5',
+        'PyYAML>=3.12',
+        'six>=1.10.0',  # required gremlinpython dep
+        'inflection>=0.3.1'
     ],
-    tests_require=[
-        'pytest>=4.6.4,<7.2.0',
-        'mock>=3.0.5,<5.0.0',
-        'radish-bdd==0.13.4',
-        'PyHamcrest>=1.9.0,<3.0.0',
-        'PyYAML>=5.3'
-    ],
-    install_requires=install_requires,
-    extras_require={
-        'kerberos': 'kerberos>=1.3.0,<2.0.0',    # Does not install in Microsoft Windows
-        'ujson': 'ujson>=2.0.0'
-    },
+    test_suite='tests',
+    setup_requires=['pytest-runner'],
+    tests_require=['pytest-asyncio',
+                   'pytest-timeout',
+                   'pytest',
+                   'mock'],
     classifiers=[
-        "Intended Audience :: Developers",
-        "License :: OSI Approved :: Apache Software License",
-        "Natural Language :: English",
-        "Programming Language :: Python :: 3"
+        'Development Status :: 5 - Production/Stable',
+        'Intended Audience :: Developers',
+        'License :: OSI Approved :: Apache Software License',
+        'Operating System :: OS Independent',
+        'Programming Language :: Python',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
+        # uncomment if you test on these interpreters:
+        # 'Programming Language :: Python :: Implementation :: IronPython',
+        # 'Programming Language :: Python :: Implementation :: Jython',
+        # 'Programming Language :: Python :: Implementation :: Stackless',
+        'Programming Language :: Python :: Implementation :: PyPy'
     ]
 )
