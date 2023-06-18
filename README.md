@@ -15,17 +15,17 @@
 [![Gitter](https://badges.gitter.im/goblin-ogm/gremlinpy.svg)](https://gitter.im/goblin-ogm/gremlinpy)
 
 
-
-*Message from jerlendds:*  
 *Installation:*
 
 ```py
 pip install git+https://github.com/jerlendds/gremlinpy.git
 ```
 
+*Message from jerlendds*
+
 1. I changed the package name to `gremlinpy` so my imports are slightly shorter
 
-2. I was trying to use the `gremlin-python`, `goblin`, `aiogremlin` in [my FastAPI app](https://github.com/jerlendds/osintbuddy) but I kept running into a loop error from the `aiogremlin` library. This patch fixes that
+2. I was trying to use the `gremlin-python`, `goblin`, `aiogremlin` in [my FastAPI app](https://github.com/jerlendds/osintbuddy) but I kept running into a loop error from the `aiogremlin` library. This patch fixes that and later on I may publish it to PyPi after I get some use out of this fix.
 
 
 An asynchronous DSL for the Gremlin-Python driver
