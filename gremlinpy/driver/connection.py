@@ -1,94 +1,165 @@
-# Licensed to the Apache Software Foundation (ASF) under one
-# or more contributor license agreements.  See the NOTICE file
-# distributed with this work for additional information
-# regarding copyright ownership.  The ASF licenses this file
-# to you under the Apache License, Version 2.0 (the
-# "License"); you may not use this file except in compliance
-# with the License.  You may obtain a copy of the License at
-#
-# http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing,
-# software distributed under the License is distributed on an
-# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-# KIND, either express or implied.  See the License for the
-# specific language governing permissions and limitations
-# under the License.
+import asyncio
+import logging
 import uuid
-import queue
-from concurrent.futures import Future
 
-from gremlinpy.driver import resultset, useragent
+try:
+    import ujson as json
+except ImportError:
+    import json
 
-__author__ = 'David M. Brown (davebshow@gmail.com)'
+from gremlinpy.driver import provider, resultset
+from gremlinpy.driver.protocol import GremlinServerWSProtocol
+from gremlinpy.driver.aiohttp.transport import AiohttpTransport
+from gremlin_python.driver import serializer
+
+
+logger = logging.getLogger(__name__)
 
 
 class Connection:
+    """
+    Main classd for interacting with the Gremlin Server. Encapsulates a
+    websocket connection. Not instantiated directly. Instead use
+    :py:meth::`Connection.open<gremlinpy.driver.connection.Connection.open>`.
 
-    def __init__(self, url, traversal_source, protocol, transport_factory,
-                 executor, pool, headers=None, enable_user_agent_on_connect=True):
+    :param str url: url for host Gremlin Server
+    :param gremlin_python.driver.transport.AbstractBaseTransport transport:
+        Transport implementation
+    :param gremlin_python.driver.protocol.AbstractBaseProtocol protocol:
+        Protocol implementation
+    :param asyncio.BaseEventLoop loop:
+    :param str username: Username for database auth
+    :param str password: Password for database auth
+    :param int max_inflight: Maximum number of unprocessed requests at any
+        one time on the connection
+    :param float response_timeout: (optional) `None` by default
+    """
+    def __init__(self, url, transport, protocol, loop, username, password,
+                 max_inflight, response_timeout, message_serializer, provider):
         self._url = url
-        self._headers = headers
-        self._traversal_source = traversal_source
+        self._transport = transport
         self._protocol = protocol
-        self._transport_factory = transport_factory
-        self._executor = executor
-        self._transport = None
-        self._pool = pool
-        self._results = {}
-        self._inited = False
-        self._enable_user_agent_on_connect = enable_user_agent_on_connect
-        if self._enable_user_agent_on_connect:
-            if self._headers is None:
-                self._headers = dict()
-            self._headers[useragent.userAgentHeader] = useragent.userAgent
+        self._loop = loop
+        self._response_timeout = response_timeout
+        self._username = username
+        self._password = password
+        self._closed = False
+        self._result_sets = {}
+        self._receive_task = self._loop.create_task(self._receive())
+        self._semaphore = asyncio.Semaphore(value=max_inflight)
+        if isinstance(message_serializer, type):
+            message_serializer = message_serializer()
+        self._message_serializer = message_serializer
+        self._provider = provider
 
-    def connect(self):
-        if self._transport:
-            self._transport.close()
-        self._transport = self._transport_factory()
-        self._transport.connect(self._url, self._headers)
-        self._protocol.connection_made(self._transport)
-        self._inited = True
+    @classmethod
+    async def open(cls, url, loop, *,
+                   protocol=None,
+                   transport_factory=None,
+                   ssl_context=None,
+                   username='',
+                   password='',
+                   max_inflight=64,
+                   response_timeout=None,
+                   message_serializer=serializer.GraphSONMessageSerializer,
+                   provider=provider.TinkerGraph):
+        """
+        **coroutine** Open a connection to the Gremlin Server.
 
-    def close(self):
-        if self._inited:
-            self._transport.close()
+        :param str url: url for host Gremlin Server
+        :param asyncio.BaseEventLoop loop:
+        :param gremlin_python.driver.protocol.AbstractBaseProtocol protocol:
+            Protocol implementation
+        :param transport_factory: Factory function for transports
+        :param ssl.SSLContext ssl_context:
+        :param str username: Username for database auth
+        :param str password: Password for database auth
 
-    def write(self, request_message):
-        if not self._inited:
-            self.connect()
+        :param int max_inflight: Maximum number of unprocessed requests at any
+            one time on the connection
+        :param float response_timeout: (optional) `None` by default
+        :param message_serializer: Message serializer implementation
+        :param provider: Graph provider object implementation
+
+        :returns: :py:class:`Connection<gremlinpy.driver.connection.Connection>`
+        """
+        if not protocol:
+            protocol = GremlinServerWSProtocol(message_serializer)
+        if not transport_factory:
+            transport_factory = lambda: AiohttpTransport(loop)
+        transport = transport_factory()
+        await transport.connect(url, ssl_context=ssl_context)
+        return cls(url, transport, protocol, loop, username, password,
+                   max_inflight, response_timeout, message_serializer,
+                   provider)
+
+    @property
+    def message_serializer(self):
+        return self._message_serializer
+
+    @property
+    def closed(self):
+        """
+        Read-only property. Check if connection has been closed.
+
+        :returns: `bool`
+        """
+        return self._closed or self._transport.closed
+
+    @property
+    def url(self):
+        """
+        Readonly property.
+
+        :returns: str The url association with this connection.
+        """
+        return self._url
+
+    async def write(self, message):
+        """
+        Submit a script and bindings to the Gremlin Server
+
+        :param `RequestMessage<gremlin_python.driver.request.RequestMessage>` message:
+        :returns: :py:class:`ResultSet<gremlinpy.driver.resultset.ResultSet>`
+            object
+        """
+        await self._semaphore.acquire()
         request_id = str(uuid.uuid4())
-        if request_message.args.get("requestId"):
-            request_id = request_message.args.get("requestId")
-        result_set = resultset.ResultSet(queue.Queue(), request_id)
-        self._results[request_id] = result_set
-        # Create write task
-        future = Future()
-        future_write = self._executor.submit(
-            self._protocol.write, request_id, request_message)
+        message = self._message_serializer.serialize_message(
+            request_id, message)
+        if self._transport.closed:
+            await self._transport.connect(self.url)
+        func = self._transport.write(message)
+        if asyncio.iscoroutine(func):
+            await func
+        result_set = resultset.ResultSet(request_id, self._response_timeout,
+                                   self._loop)
+        self._result_sets[request_id] = result_set
+        self._loop.create_task(
+            self._terminate_response(result_set, request_id))
+        return result_set
 
-        def cb(f):
-            try:
-                f.result()
-            except Exception as e:
-                future.set_exception(e)
-                self._pool.put_nowait(self)
-            else:
-                # Start receive task
-                done = self._executor.submit(self._receive)
-                result_set.done = done
-                future.set_result(result_set)
+    submit = write
 
-        future_write.add_done_callback(cb)
-        return future
+    async def close(self):
+        """**coroutine** Close underlying connection and mark as closed."""
+        self._receive_task.cancel()
+        await self._transport.close()
+        self._closed = True
 
-    def _receive(self):
-        try:
-            while True:
-                data = self._transport.read()
-                status_code = self._protocol.data_received(data, self._results)
-                if status_code != 206:
-                    break
-        finally:
-            self._pool.put_nowait(self)
+    async def _terminate_response(self, resp, request_id):
+        await resp.done.wait()
+        del self._result_sets[request_id]
+        self._semaphore.release()
+
+    async def _receive(self):
+        while True:
+            data = await self._transport.read()
+            await self._protocol.data_received(data, self._result_sets)
+
+    async def __aenter__(self):
+        return self
+
+    async def __aexit__(self, exc_type, exc, tb):
+        await self.close()
+        self._transport = None

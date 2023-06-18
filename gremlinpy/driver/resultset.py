@@ -1,34 +1,55 @@
-#
-# Licensed to the Apache Software Foundation (ASF) under one
-# or more contributor license agreements.  See the NOTICE file
-# distributed with this work for additional information
-# regarding copyright ownership.  The ASF licenses this file
-# to you under the Apache License, Version 2.0 (the
-# "License"); you may not use this file except in compliance
-# with the License.  You may obtain a copy of the License at
-#
-# http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing,
-# software distributed under the License is distributed on an
-# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-# KIND, either express or implied.  See the License for the
-# specific language governing permissions and limitations
-# under the License.
-#
-from concurrent.futures import Future
+import asyncio
+import functools
 
-__author__ = 'David M. Brown (davebshow@gmail.com)'
+from gremlinpy import exception
+
+
+def error_handler(fn):
+    @functools.wraps(fn)
+    async def wrapper(self):
+        msg = await fn(self)
+        if msg:
+            if msg.status_code not in [200, 206]:
+                self.close()
+                raise exception.GremlinServerError(
+                    msg.status_code,
+                    "{0}: {1}".format(msg.status_code, msg.message))
+            msg = msg.data
+        return msg
+    return wrapper
 
 
 class ResultSet:
-
-    def __init__(self, stream, request_id):
-        self._stream = stream
+    """Gremlin Server response implementated as an async iterator."""
+    def __init__(self, request_id, timeout, loop):
+        self._response_queue = asyncio.Queue(loop=loop)
         self._request_id = request_id
-        self._done = None
+        self._loop = loop
+        self._timeout = timeout
+        self._done = asyncio.Event(loop=self._loop)
         self._aggregate_to = None
-        self._status_attributes = {}
+
+    @property
+    def request_id(self):
+        return self._request_id
+
+    @property
+    def stream(self):
+        return self._response_queue
+
+    def queue_result(self, result):
+        if result is None:
+            self.close()
+        self._response_queue.put_nowait(result)
+
+    @property
+    def done(self):
+        """
+        Readonly property.
+
+        :returns: `asyncio.Event` object
+        """
+        return self._done
 
     @property
     def aggregate_to(self):
@@ -38,63 +59,38 @@ class ResultSet:
     def aggregate_to(self, val):
         self._aggregate_to = val
 
-    @property
-    def status_attributes(self):
-        return self._status_attributes
-
-    @status_attributes.setter
-    def status_attributes(self, val):
-        self._status_attributes = val
-
-    @property
-    def request_id(self):
-        return self._request_id
-
-    @property
-    def stream(self):
-        return self._stream
-
-    def __iter__(self):
+    def __aiter__(self):
         return self
 
-    def __next__(self):
-        result = self.one()
-        if not result:
-            raise StopIteration
-        return result
+    async def __anext__(self):
+        msg = await self.one()
+        if not msg:
+            raise StopAsyncIteration
+        return msg
 
-    def next(self):
-        return self.__next__()
+    def close(self):
+        self.done.set()
+        self._loop = None
 
-    @property
-    def done(self):
-        return self._done
-
-    @done.setter
-    def done(self, future):
-        self._done = future
-
-    def one(self):
-        while not self.done.done():
-            if not self.stream.empty():
-                return self.stream.get_nowait()
-        if not self.stream.empty():
-            return self.stream.get_nowait()
-        return self.done.result()
-
-    def all(self):
-        future = Future()
-
-        def cb(f):
+    @error_handler
+    async def one(self):
+        """Get a single message from the response stream"""
+        if not self._response_queue.empty():
+            msg = self._response_queue.get_nowait()
+        elif self.done.is_set():
+            msg = None
+        else:
             try:
-                f.result()
-            except Exception as e:
-                future.set_exception(e)
-            else:
-                results = []
-                while not self.stream.empty():
-                    results += self.stream.get_nowait()
-                future.set_result(results)
+                msg = await asyncio.wait_for(self._response_queue.get(),
+                                             timeout=self._timeout,
+                                             loop=self._loop)
+            except asyncio.TimeoutError:
+                self.close()
+                raise exception.ResponseTimeoutError('Response timed out')
+        return msg
 
-        self.done.add_done_callback(cb)
-        return future
+    async def all(self):
+        results = []
+        async for result in self:
+            results.append(result)
+        return results
