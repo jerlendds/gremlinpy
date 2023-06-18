@@ -82,8 +82,7 @@ class ResultSet:
         else:
             try:
                 msg = await asyncio.wait_for(self._response_queue.get(),
-                                             timeout=self._timeout,
-                                             loop=self._loop)
+                                             timeout=self._timeout)
             except asyncio.TimeoutError:
                 self.close()
                 raise exception.ResponseTimeoutError('Response timed out')
