@@ -53,7 +53,7 @@ async def some_async_function(plugin_label):
         g: AsyncGraphTraversal = Graph().traversal().withRemote(connection)
         await g.addV('Some Label').property('id', 1). \
             property(Cardinality.single, 'name', 'Apache'). \
-            property('lastname', 'WTF'). \
+            property('lastname', 'example'). \
             next()
         vertices = await g.V().valueMap(True).toList()
         json_graph: List[dict] = process_vertices(vertices)
