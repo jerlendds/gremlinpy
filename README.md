@@ -1,4 +1,4 @@
-# [![Goblin logo](https://git.qoto.org/goblin-ogm/goblin/uploads/bb8f7349fdb9aa2a7a244e4c95b380a7/goblin-logo.png)  AIO Gremlin](http://goblin-ogm.com)
+# [![Goblin logo](https://git.qoto.org/goblin-ogm/goblin/uploads/bb8f7349fdb9aa2a7a244e4c95b380a7/goblin-logo.png)  AIO Gremlin](http://goblin-ogm.com) - Now known as [gremlinpy](https://github.com/jerlendds/gremlinpy) - Patched by [jerlendds](https://github.com/jerlendds)
 
 [![tests](http://git.qoto.org/goblin-ogm/gremlinpy/badges/master/pipeline.svg)](http://git.qoto.org/goblin-ogm/gremlinpy/commits/master)
 [![Requirements](https://requires.io/github/goblin-ogm/gremlinpy/requirements.svg?branch=master)](https://requires.io/github/goblin-ogm/gremlinpy/requirements/?branch=master)
@@ -13,6 +13,20 @@
 [![SemVer](https://img.shields.io/badge/SemVer-v2.0.0-green)](https://semver.org/spec/v2.0.0.html)
 [![docs](https://readthedocs.org/projects/gremlinpy/badge/?version=latest)](https://gremlinpy.readthedocs.io/en/latest/)
 [![Gitter](https://badges.gitter.im/goblin-ogm/gremlinpy.svg)](https://gitter.im/goblin-ogm/gremlinpy)
+
+
+
+*Message from jerlendds:*  
+*Installation:*
+
+```py
+pip install git+https://github.com/jerlendds/gremlinpy.git
+```
+
+1. I changed the package name to `gremlinpy` so my imports are slightly shorter
+
+2. I was trying to use the `gremlin-python`, `goblin`, `aiogremlin` in [my FastAPI app](https://github.com/jerlendds/osintbuddy) but I kept running into a loop error from the `aiogremlin` library. This patch fixes that
+
 
 An asynchronous DSL for the Gremlin-Python driver
 
