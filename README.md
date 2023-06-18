@@ -30,6 +30,7 @@ pip install git+https://github.com/jerlendds/gremlinpy.git
 *Example usage from my [OSINTBuddy](https://github.com/jerlendds/osintbuddy) app*
 
 ```py
+import json
 from gremlinpy import DriverRemoteConnection, Graph
 from gremlinpy.process.graph_traversal import AsyncGraphTraversal
 from gremlin_python.process.traversal import T, Cardinality
@@ -57,7 +58,7 @@ async def some_async_function(plugin_label):
             next()
         vertices = await g.V().valueMap(True).toList()
         json_graph: List[dict] = process_vertices(vertices)
-        print(json_graph)
+        print(json.dumps(json_graph, indent=4))
 
 ```
 
