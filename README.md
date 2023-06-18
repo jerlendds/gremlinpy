@@ -27,6 +27,46 @@ pip install git+https://github.com/jerlendds/gremlinpy.git
 
 2. I was trying to use the `gremlin-python`, `goblin`, `aiogremlin` in [my FastAPI app](https://github.com/jerlendds/osintbuddy) but I kept running into a loop error from the `aiogremlin` library. This patch fixes that and later on I may publish it to PyPi after I get some use out of this fix.
 
+*Example usage from my [OSINTBuddy](https://github.com/jerlendds/osintbuddy) app*
+
+```py
+from gremlinpy import DriverRemoteConnection, Graph
+from gremlinpy.process.graph_traversal import AsyncGraphTraversal
+from gremlin_python.process.traversal import T, Cardinality
+
+def process_vertices(graph: List[dict]):
+    output = []
+    for obj in v:
+        out = {
+            "id":  obj[T.id],
+            "label": obj[T.label],
+        }
+        del obj[T.id]
+        del obj[T.label]
+        for k, v in obj.items():
+            out[k] = v[0]
+        output.append(out)
+    return output
+
+async def some_async_function(plugin_label):
+    async with await DriverRemoteConnection.open('ws://janus:8182/g', 'g') as connection:
+        g: AsyncGraphTraversal = Graph().traversal().withRemote(connection)
+        await g.addV('Some Label').property('id', 1). \
+            property(Cardinality.single, 'name', 'Apache'). \
+            property('lastname', 'WTF'). \
+            next()
+        vertices = await g.V().valueMap(True).toList()
+        json_graph: List[dict] = process_vertices(vertices)
+        print(json_graph)
+
+    plugin = await Registry.get_plugin(plugin_label=plugin_label)
+    if plugin is not None:
+        labels = plugin().transform_labels
+    else:
+        labels = []
+    return labels
+```
+
 
 An asynchronous DSL for the Gremlin-Python driver
 
