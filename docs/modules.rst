@@ -1,10 +1,10 @@
-aiogremlin API
+gremlinpy API
 ==============
 
 .. toctree::
    :maxdepth: 4
 
-   aiogremlin
+   gremlinpy
 
 External References
 -------------------

@@ -2,7 +2,7 @@
 
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![SemVer](https://img.shields.io/badge/SemVer-v2.0.0-green)](https://semver.org/spec/v2.0.0.html)
-[![Gitter](https://badges.gitter.im/goblin-ogm/aiogremlin.svg)](https://gitter.im/goblin-ogm/aiogremlin)
+[![Gitter](https://badges.gitter.im/goblin-ogm/gremlinpy.svg)](https://gitter.im/goblin-ogm/gremlinpy)
 
 When contributing to this repository, it is usually a good idea to first discuss the change you
 wish to make via issue, email, or any other method with the owners of this repository before

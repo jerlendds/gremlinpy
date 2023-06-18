@@ -20,7 +20,7 @@ import uuid
 
 import pytest
 
-from aiogremlin.driver.server import GremlinServer
+from gremlinpy.driver.server import GremlinServer
 
 
 @pytest.mark.asyncio

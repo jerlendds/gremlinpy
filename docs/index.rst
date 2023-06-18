@@ -1,18 +1,18 @@
-.. aiogremlin documentation master file, created by
+.. gremlinpy documentation master file, created by
    sphinx-quickstart on Sat Jun 27 13:50:06 2015.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
 ==========
-aiogremlin
+gremlinpy
 ==========
 
-`aiogremlin` is an asynchronous DSL based on the official `Gremlin-Python` GLV designed for integration with
+`gremlinpy` is an asynchronous DSL based on the official `Gremlin-Python` GLV designed for integration with
 event loop based asynchronous Python networking libraries, including `asyncio`_,
 `aiohttp`_, and `tornado`_. It uses the `async/await` syntax introduced
 in `PEP 492`_, and is therefore Python 3.5+ only.
 
-`aiogremlin` tries to follow `Gremlin-Python` as closely as possible both in terms
+`gremlinpy` tries to follow `Gremlin-Python` as closely as possible both in terms
 of API and implementation. It is released according to the `TinkerPop`_ release schedule.
 
 Note that this *NOT* an official Apache project component, it is a
@@ -20,7 +20,7 @@ Note that this *NOT* an official Apache project component, it is a
 
 Releases
 ========
-The latest release of :py:mod:`aiogremlin` is **3.3.1**.
+The latest release of :py:mod:`gremlinpy` is **3.3.1**.
 
 
 Requirements
@@ -42,7 +42,7 @@ Installation
 ============
 Install using pip::
 
-    $ pip install aiogremlin==<tinkerpop_version>
+    $ pip install gremlinpy==<tinkerpop_version>
 
 For this version, a separate install of gremlinpython is required::
 
@@ -52,18 +52,18 @@ For this version, a separate install of gremlinpython is required::
 Getting Started
 ===============
 
-:py:mod:`aiogremlin` has a simple API that is quite easy to use. However, as it relies
+:py:mod:`gremlinpy` has a simple API that is quite easy to use. However, as it relies
 heavily on `asyncio`_ and `aiohttp`_, it is helpful to be familiar with the
 basics of these modules.
 
-:py:mod:`aiogremlin` is *very* similar to Gremlin-Python, except it is all async, all the time.
+:py:mod:`gremlinpy` is *very* similar to Gremlin-Python, except it is all async, all the time.
 
 Minimal Example
 ---------------
 Submit a script to the Gremlin Server::
 
     >>> import asyncio
-    >>> from aiogremlin import DriverRemoteConnection, Graph
+    >>> from gremlinpy import DriverRemoteConnection, Graph
 
     >>> loop = asyncio.get_event_loop()
 
@@ -79,7 +79,7 @@ Submit a script to the Gremlin Server::
     # [v[1], v[2], v[3], v[4], v[5], v[6]]
 
 
-The above example demonstrates how :py:mod:`aiogremlin` uses the
+The above example demonstrates how :py:mod:`gremlinpy` uses the
 :ref:`event loop<asyncio-event-loop>` to drive communication with the Gremlin
 Server, but the **rest of examples are written as if they were run in a Python
 interpreter**. In reality, **this isn't possible**, so remember, code *must*
@@ -117,4 +117,4 @@ Indices and tables
 .. _`aiohttp`: http://aiohttp.readthedocs.org/en/latest/
 .. _`Tornado`: http://www.tornadoweb.org/en/stable/
 .. _`PEP 492`: https://www.python.org/dev/peps/pep-0492/
-.. _Github: https://github.com/davebshow/aiogremlin/issues
+.. _Github: https://github.com/davebshow/gremlinpy/issues

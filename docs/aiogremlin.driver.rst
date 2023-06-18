@@ -1,4 +1,4 @@
-aiogremlin\.driver package
+gremlinpy\.driver package
 ==========================
 
 Subpackages
@@ -6,73 +6,73 @@ Subpackages
 
 .. toctree::
 
-    aiogremlin.driver.aiohttp
+    gremlinpy.driver.aiohttp
 
 Submodules
 ----------
 
-aiogremlin\.driver\.client module
+gremlinpy\.driver\.client module
 ---------------------------------
 
-.. automodule:: aiogremlin.driver.client
+.. automodule:: gremlinpy.driver.client
     :members:
     :undoc-members:
     :show-inheritance:
 
-aiogremlin\.driver\.cluster module
+gremlinpy\.driver\.cluster module
 ----------------------------------
 
-.. automodule:: aiogremlin.driver.cluster
+.. automodule:: gremlinpy.driver.cluster
     :members:
     :undoc-members:
     :show-inheritance:
 
-aiogremlin\.driver\.connection module
+gremlinpy\.driver\.connection module
 -------------------------------------
 
 .. autoclass:: gremlin_python.driver.protocol.AbstractBaseProtocol
 
-.. automodule:: aiogremlin.driver.connection
+.. automodule:: gremlinpy.driver.connection
     :members:
     :undoc-members:
     :show-inheritance:
 
-aiogremlin\.driver\.pool module
+gremlinpy\.driver\.pool module
 -------------------------------
 
-.. automodule:: aiogremlin.driver.pool
+.. automodule:: gremlinpy.driver.pool
     :members:
     :undoc-members:
     :show-inheritance:
 
-aiogremlin\.driver\.protocol module
+gremlinpy\.driver\.protocol module
 -----------------------------------
 
-.. automodule:: aiogremlin.driver.protocol
+.. automodule:: gremlinpy.driver.protocol
     :members:
     :undoc-members:
     :show-inheritance:
 
-aiogremlin\.driver\.provider module
+gremlinpy\.driver\.provider module
 -----------------------------------
 
-.. automodule:: aiogremlin.driver.provider
+.. automodule:: gremlinpy.driver.provider
     :members:
     :undoc-members:
     :show-inheritance:
 
-aiogremlin\.driver\.resultset module
+gremlinpy\.driver\.resultset module
 ------------------------------------
 
-.. automodule:: aiogremlin.driver.resultset
+.. automodule:: gremlinpy.driver.resultset
     :members:
     :undoc-members:
     :show-inheritance:
 
-aiogremlin\.driver\.server module
+gremlinpy\.driver\.server module
 ---------------------------------
 
-.. automodule:: aiogremlin.driver.server
+.. automodule:: gremlinpy.driver.server
     :members:
     :undoc-members:
     :show-inheritance:
@@ -81,7 +81,7 @@ aiogremlin\.driver\.server module
 Module contents
 ---------------
 
-.. automodule:: aiogremlin.driver
+.. automodule:: gremlinpy.driver
     :members:
     :undoc-members:
     :show-inheritance:

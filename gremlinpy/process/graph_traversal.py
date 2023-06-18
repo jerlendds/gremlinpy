@@ -1,5 +1,5 @@
-from aiogremlin.process.traversal import AsyncTraversalStrategies
-from aiogremlin.remote.remote_connection import AsyncRemoteStrategy
+from gremlinpy.process.traversal import AsyncTraversalStrategies
+from gremlinpy.remote.remote_connection import AsyncRemoteStrategy
 
 from gremlin_python.process import graph_traversal, traversal
 

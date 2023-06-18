@@ -24,7 +24,7 @@ from gremlin_python.statics import long
 from gremlin_python.process.traversal import Traverser
 from gremlin_python.process.traversal import TraversalStrategy
 from gremlin_python.process.graph_traversal import __
-from aiogremlin.structure.graph import Graph
+from gremlinpy.structure.graph import Graph
 from gremlin_python.structure.graph import Vertex
 from gremlin_python.process.strategies import SubgraphStrategy
 

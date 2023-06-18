@@ -1,5 +1,5 @@
-from aiogremlin.process import graph_traversal
-from aiogremlin.process.traversal import AsyncTraversalStrategies
+from gremlinpy.process import graph_traversal
+from gremlinpy.process.traversal import AsyncTraversalStrategies
 
 from gremlin_python.structure import graph
 

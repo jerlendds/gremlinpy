@@ -20,7 +20,7 @@ under the License.
 import pytest
 
 from gremlin_python.driver.request import RequestMessage
-from aiogremlin.structure.graph import Graph
+from gremlinpy.structure.graph import Graph
 
 __author__ = 'David M. Brown (davebshow@gmail.com)'
 

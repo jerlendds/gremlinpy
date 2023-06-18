@@ -1,6 +1,6 @@
 """Client for the Tinkerpop 3 Gremlin Server."""
 
-from aiogremlin import exception
+from gremlinpy import exception
 
 from gremlin_python.driver import request
 from gremlin_python.process import traversal
@@ -8,11 +8,11 @@ from gremlin_python.process import traversal
 
 class Client:
     """
-    Client that utilizes a :py:class:`Cluster<aiogremlin.driver.cluster.Cluster>`
+    Client that utilizes a :py:class:`Cluster<gremlinpy.driver.cluster.Cluster>`
     to access a cluster of Gremlin Server hosts. Issues requests to hosts using
     a round robin strategy.
 
-    :param aiogremlin.driver.cluster.Cluster cluster: Cluster used by
+    :param gremlinpy.driver.cluster.Cluster cluster: Cluster used by
         client
     :param asyncio.BaseEventLoop loop:
     :param dict aliases: Optional mapping for aliases. Default is `None`
@@ -41,7 +41,7 @@ class Client:
         Read-only property.
 
         :returns: The instance of
-            :py:class:`Cluster<aiogremlin.driver.cluster.Cluster>` associated with
+            :py:class:`Cluster<gremlinpy.driver.cluster.Cluster>` associated with
             client.
         """
         return self._cluster
@@ -63,7 +63,7 @@ class Client:
             `Bytecode<gremlin_python.process.traversal.Bytecode>`
             or a `str` representing a raw Gremlin script
         :param dict bindings: Optional bindings used with raw Grelmin
-        :returns: :py:class:`ResultSet<aiogremlin.driver.resultset.ResultSet>`
+        :returns: :py:class:`ResultSet<gremlinpy.driver.resultset.ResultSet>`
             object
         """
         if isinstance(message, traversal.Bytecode):

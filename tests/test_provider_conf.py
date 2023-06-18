@@ -10,7 +10,7 @@
 #
 # import goblin
 # from goblin import driver
-# from aiogremlin import serializer
+# from gremlinpy import serializer
 # from goblin import provider
 #
 # request_id = uuid.UUID(int=215449331521667564889692237976543325869, version=4)

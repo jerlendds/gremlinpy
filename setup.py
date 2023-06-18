@@ -12,7 +12,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setup(
-    name='aiogremlin',
+    name='gremlinpy',
     version='3.3.5',
     license=__license__,
     author=__author__,
@@ -21,15 +21,15 @@ setup(
     long_description_content_type="text/markdown",
     long_description=long_description,
     url='http://goblin-ogm.com',
-    download_url='https://github.com/goblin-ogm/aiogremlin/archive/v3.3.5.tar.gz',
+    download_url='https://github.com/goblin-ogm/gremlinpy/archive/v3.3.5.tar.gz',
     include_package_data=True,
     keywords=['Tinkerpop', 'Tinkerpop3', 'gremlin', 'gremlin-python', 'asyncio', 'graphdb'],
-    packages=['aiogremlin',
-              'aiogremlin.driver',
-              'aiogremlin.driver.aiohttp',
-              'aiogremlin.process',
-              'aiogremlin.structure',
-              'aiogremlin.remote'],
+    packages=['gremlinpy',
+              'gremlinpy.driver',
+              'gremlinpy.driver.aiohttp',
+              'gremlinpy.process',
+              'gremlinpy.structure',
+              'gremlinpy.remote'],
     python_requires='>=3.5',
     install_requires=[
         'gremlinpython<=3.4.3',

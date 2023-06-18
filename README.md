@@ -1,34 +1,34 @@
 # [![Goblin logo](https://git.qoto.org/goblin-ogm/goblin/uploads/bb8f7349fdb9aa2a7a244e4c95b380a7/goblin-logo.png)  AIO Gremlin](http://goblin-ogm.com)
 
-[![tests](http://git.qoto.org/goblin-ogm/aiogremlin/badges/master/pipeline.svg)](http://git.qoto.org/goblin-ogm/aiogremlin/commits/master)
-[![Requirements](https://requires.io/github/goblin-ogm/aiogremlin/requirements.svg?branch=master)](https://requires.io/github/goblin-ogm/aiogremlin/requirements/?branch=master)
-[![test coverage](http://git.qoto.org/goblin-ogm/aiogremlin/badges/master/coverage.svg)](http://git.qoto.org/goblin-ogm/aiogremlin/commits/master)
-[![codecov](https://codecov.io/gh/goblin-ogm/aiogremlin/branch/master/graph/badge.svg)](https://codecov.io/gh/goblin-ogm/aiogremlin)
-[![Codacy](https://api.codacy.com/project/badge/Grade/99c4b7d53ee94c85b95433ee4ff6230c)](https://www.codacy.com/gh/goblin-ogm/aiogremlin)
-[![Scrutinizer](https://img.shields.io/scrutinizer/quality/g/goblin-ogm/aiogremlin/master.svg?style=flat)](https://scrutinizer-ci.com/g/goblin-ogm/aiogremlin)
+[![tests](http://git.qoto.org/goblin-ogm/gremlinpy/badges/master/pipeline.svg)](http://git.qoto.org/goblin-ogm/gremlinpy/commits/master)
+[![Requirements](https://requires.io/github/goblin-ogm/gremlinpy/requirements.svg?branch=master)](https://requires.io/github/goblin-ogm/gremlinpy/requirements/?branch=master)
+[![test coverage](http://git.qoto.org/goblin-ogm/gremlinpy/badges/master/coverage.svg)](http://git.qoto.org/goblin-ogm/gremlinpy/commits/master)
+[![codecov](https://codecov.io/gh/goblin-ogm/gremlinpy/branch/master/graph/badge.svg)](https://codecov.io/gh/goblin-ogm/gremlinpy)
+[![Codacy](https://api.codacy.com/project/badge/Grade/99c4b7d53ee94c85b95433ee4ff6230c)](https://www.codacy.com/gh/goblin-ogm/gremlinpy)
+[![Scrutinizer](https://img.shields.io/scrutinizer/quality/g/goblin-ogm/gremlinpy/master.svg?style=flat)](https://scrutinizer-ci.com/g/goblin-ogm/gremlinpy)
 
-[![PyPi](https://img.shields.io/pypi/v/aiogremlin.svg?style=flat)](https://pypi.python.org/pypi/aiogremlin)
-[![Supported Versions](https://img.shields.io/pypi/pyversions/aiogremlin.svg?style=flat)](https://pypi.python.org/pypi/aiogremlin)
-[![Downloads](https://img.shields.io/pypi/dm/aiogremlin.svg?style=flat)](https://pypi.python.org/pypi/aiogremlin)
+[![PyPi](https://img.shields.io/pypi/v/gremlinpy.svg?style=flat)](https://pypi.python.org/pypi/gremlinpy)
+[![Supported Versions](https://img.shields.io/pypi/pyversions/gremlinpy.svg?style=flat)](https://pypi.python.org/pypi/gremlinpy)
+[![Downloads](https://img.shields.io/pypi/dm/gremlinpy.svg?style=flat)](https://pypi.python.org/pypi/gremlinpy)
 [![SemVer](https://img.shields.io/badge/SemVer-v2.0.0-green)](https://semver.org/spec/v2.0.0.html)
-[![docs](https://readthedocs.org/projects/aiogremlin/badge/?version=latest)](https://aiogremlin.readthedocs.io/en/latest/)
-[![Gitter](https://badges.gitter.im/goblin-ogm/aiogremlin.svg)](https://gitter.im/goblin-ogm/aiogremlin)
+[![docs](https://readthedocs.org/projects/gremlinpy/badge/?version=latest)](https://gremlinpy.readthedocs.io/en/latest/)
+[![Gitter](https://badges.gitter.im/goblin-ogm/gremlinpy.svg)](https://gitter.im/goblin-ogm/gremlinpy)
 
 An asynchronous DSL for the Gremlin-Python driver
 
 **Licensed under the Apache Software License v2**
 
-`aiogremlin` is an asynchronous DSL based on the official `Gremlin-Python` GLV designed for integration with
+`gremlinpy` is an asynchronous DSL based on the official `Gremlin-Python` GLV designed for integration with
 event loop based asynchronous Python networking libraries, including `asyncio`,
 `aiohttp`, and `tornado`. It uses the `async/await` syntax introduced
 in PEP 492, and is therefore Python 3.5+ only.
 
-`aiogremlin` tries to follow `Gremlin-Python` as closely as possible both in terms
+`gremlinpy` tries to follow `Gremlin-Python` as closely as possible both in terms
 of API and implementation. It is released according to the TinkerPop release schedule.
 
-`aiogremlin` is built directly on top of TinkerPop and allows access to all of the internals. This ensures all the
+`gremlinpy` is built directly on top of TinkerPop and allows access to all of the internals. This ensures all the
 TinkerPop features are available to the end-user. The TinkerPop stack provides several tools which can be used to work
-with `aiogremlin`.
+with `gremlinpy`.
 
 * **Gremlin**, a database agnostic query language for Graph Databases.
 * **Gremlin Server**, a server that provides an interface for executing Gremlin on remote machines.
@@ -39,7 +39,7 @@ with `aiogremlin`.
 * Native **Gephi** integration for visualizing graphs.
 * Interfaces for most major Graph Compute Engines including **Hadoop M/R**. **Spark**, and **Giraph**.
 
-`aiogremlin` also supports any of the many databases compatible with TinkerPop including the following.
+`gremlinpy` also supports any of the many databases compatible with TinkerPop including the following.
 
  * [JanusGraph](http://janusgraph.org/)
  * [Titan](http://thinkaurelius.github.io/titan/)
@@ -61,7 +61,7 @@ with `aiogremlin`.
 
 ```python
 import asyncio
-from aiogremlin import DriverRemoteConnection, Graph
+from gremlinpy import DriverRemoteConnection, Graph
 
 
 loop = asyncio.get_event_loop()
@@ -88,13 +88,13 @@ As an open-source project we run entierly off donations. Buy one of our hardwork
 
 ## Support and Documentation
 
-The official homepage for the project is at [http://goblin-ogm.com](http://goblin-ogm.com). The source is officially hosted on [QOTO GitLab here](https://git.qoto.org/goblin-ogm/aiogremlin) however an up-to-date mirror is also maintained on [Github here](https://github.com/goblin-ogm/aiogremlin).
+The official homepage for the project is at [http://goblin-ogm.com](http://goblin-ogm.com). The source is officially hosted on [QOTO GitLab here](https://git.qoto.org/goblin-ogm/gremlinpy) however an up-to-date mirror is also maintained on [Github here](https://github.com/goblin-ogm/gremlinpy).
 
-Documentation: [latest](http://goblin-ogm.qoto.io/aiogremlin)
+Documentation: [latest](http://goblin-ogm.qoto.io/gremlinpy)
 
-For support please use [Gitter](https://gitter.im/goblin-ogm/aiogremlin) or the [official Goblin mailing list and Discourse forum](https://discourse.qoto.org/c/PROJ/GOB).
+For support please use [Gitter](https://gitter.im/goblin-ogm/gremlinpy) or the [official Goblin mailing list and Discourse forum](https://discourse.qoto.org/c/PROJ/GOB).
 
-Please file bugs and feature requests on [QOTO GitLab](https://git.qoto.org/goblin-ogm/aiogremlin/issues) our old archived issues can still be viewed on [Github](https://github.com/davebshow/aiogremlin/issues) as well.
+Please file bugs and feature requests on [QOTO GitLab](https://git.qoto.org/goblin-ogm/gremlinpy/issues) our old archived issues can still be viewed on [Github](https://github.com/davebshow/gremlinpy/issues) as well.
 
 Aparapi conforms to the [Semantic Versioning 2.0.0](http://semver.org/spec/v2.0.0.html) standard. That means the version of a release isnt arbitrary but rather describes how the library interfaces have changed. Read more about it at the [Semantic Versioning page](http://semver.org/spec/v2.0.0.html).
 

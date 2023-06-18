@@ -1,13 +1,13 @@
-aiogremlin\.structure package
+gremlinpy\.structure package
 =============================
 
 Submodules
 ----------
 
-aiogremlin\.structure\.graph module
+gremlinpy\.structure\.graph module
 -----------------------------------
 
-.. automodule:: aiogremlin.structure.graph
+.. automodule:: gremlinpy.structure.graph
     :members:
     :undoc-members:
     :show-inheritance:
@@ -16,7 +16,7 @@ aiogremlin\.structure\.graph module
 Module contents
 ---------------
 
-.. automodule:: aiogremlin.structure
+.. automodule:: gremlinpy.structure
     :members:
     :undoc-members:
     :show-inheritance:

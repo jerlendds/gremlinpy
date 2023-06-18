@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-# aiogremlin documentation build configuration file, created by
+# gremlinpy documentation build configuration file, created by
 # sphinx-quickstart on Sat Jun 27 13:50:06 2015.
 #
 # This file is execfile()d with the current directory set to its
@@ -53,7 +53,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'aiogremlin'
+project = 'gremlinpy'
 copyright = '2015, David M. Brown'
 author = 'David M. Brown'
 
@@ -125,7 +125,7 @@ html_theme_options = {
     'description': 'Async Gremlin Language Variant',
     'logo_text_align': 'left',
     'github_user': 'davebshow',
-    'github_repo': 'aiogremlin',
+    'github_repo': 'gremlinpy',
     'github_button': True,
     'github_banner': True
 }
@@ -219,7 +219,7 @@ html_sidebars = {
 #html_search_scorer = 'scorer.js'
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'aiogremlindoc'
+htmlhelp_basename = 'gremlinpydoc'
 
 # -- Options for LaTeX output ---------------------------------------------
 
@@ -241,7 +241,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-  (master_doc, 'aiogremlin.tex', 'aiogremlin Documentation',
+  (master_doc, 'gremlinpy.tex', 'gremlinpy Documentation',
    'David M. Brown', 'manual'),
 ]
 
@@ -271,7 +271,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'aiogremlin', 'aiogremlin Documentation',
+    (master_doc, 'gremlinpy', 'gremlinpy Documentation',
      [author], 1)
 ]
 
@@ -285,8 +285,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  (master_doc, 'aiogremlin', 'aiogremlin Documentation',
-   author, 'aiogremlin', 'One line description of project.',
+  (master_doc, 'gremlinpy', 'gremlinpy Documentation',
+   author, 'gremlinpy', 'One line description of project.',
    'Miscellaneous'),
 ]
 

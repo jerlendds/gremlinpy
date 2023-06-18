@@ -1,4 +1,4 @@
-Using :py:mod:`aiogremlin`
+Using :py:mod:`gremlinpy`
 ==========================
 
 Before you get started, make sure you have the Gremlin Server up and running.
@@ -12,24 +12,24 @@ configuration::
 Using the Gremlin Language Variant
 ----------------------------------
 
-:py:mod:`aiogremlin` is used almost exactly like the official Gremlin-Python,
-except that all operations are asynchronous. Thus when coding with :py:mod:`aiogremlin`
+:py:mod:`gremlinpy` is used almost exactly like the official Gremlin-Python,
+except that all operations are asynchronous. Thus when coding with :py:mod:`gremlinpy`
 coroutines and the `async/await` syntax are used in combination with an `asyncio` compatible
 event loop implementation (`tornado`, `ZeroMQ`, `uvloop`, etc.).
 
 The following examples assume that you are already familiar with `asyncio`, coroutines,
 and the event loop. For readability, they strip away these details
-to focus on the syntax used by :py:mod:`aiogremlin`.
+to focus on the syntax used by :py:mod:`gremlinpy`.
 
 To create a traversal source, simply use
-:py:class:`DriverRemoteConnection<aiogremlin.remote.driver_remote_connection.DriverRemoteConnection>`
+:py:class:`DriverRemoteConnection<gremlinpy.remote.driver_remote_connection.DriverRemoteConnection>`
 combined with :py:class:`Graph<gremlin_python.structure.graph.Graph>`::
 
     >>> remote_connection = await DriverRemoteConnection.open(
     ...    'ws://localhost:8182/gremlin', 'g')
     >>>  g = Graph().traversal().withRemote(remote_connection)
 
-In :py:mod:`aiogremlin`, a
+In :py:mod:`gremlinpy`, a
 :py:class:`Traversal<gremlin_python.process.traversal.Traversal>`
 implements the Asynchronous Iterator Protocol as defined
 by PEP 492::
@@ -38,9 +38,9 @@ by PEP 492::
     ...     print(vertex)
 
 Furthermore, it implements several convience methods -
-:py:meth:`toList<aiogremlin.process.graph_traversal.AsyncGraphTraversal.toList>`,
-:py:meth:`toSet<aiogremlin.process.graph_traversal.AsyncGraphTraversal.toSet>`,
-and :py:meth:`next<aiogremlin.process.graph_traversal.AsyncGraphTraversal.next>`::
+:py:meth:`toList<gremlinpy.process.graph_traversal.AsyncGraphTraversal.toList>`,
+:py:meth:`toSet<gremlinpy.process.graph_traversal.AsyncGraphTraversal.toSet>`,
+and :py:meth:`next<gremlinpy.process.graph_traversal.AsyncGraphTraversal.next>`::
 
     >>> vertex_list = await g.V().toList()
     >>> vertex_set = await g.V().toSet()
@@ -48,7 +48,7 @@ and :py:meth:`next<aiogremlin.process.graph_traversal.AsyncGraphTraversal.next>`
 
 :py:class:`Traversal<gremlin_python.process.traversal.Traversal>`
 also contains a reference to a
-:py:class:`AsyncRemoteTraversalSideEffects<aiogremlin.remote.driver_remote_side_effects.AsyncRemoteTraversalSideEffects>`
+:py:class:`AsyncRemoteTraversalSideEffects<gremlinpy.remote.driver_remote_side_effects.AsyncRemoteTraversalSideEffects>`
 object that can be used to fetch side effects cached by the server (when applicable)::
 
     >>> t = g.V().aggregate('a')
@@ -58,48 +58,48 @@ object that can be used to fetch side effects cached by the server (when applica
     >>> await t.side_effects.close()
 
 Don't forget to close the
-:py:class:`DriverRemoteConnection<aiogremlin.remote.driver_remote_connection.DriverRemoteConnection>`
+:py:class:`DriverRemoteConnection<gremlinpy.remote.driver_remote_connection.DriverRemoteConnection>`
 when finished::
 
     >>> await remote_connection.close()
 
 
-Using :py:class:`DriverRemoteConnection<aiogremlin.remote.driver_remote_connection.DriverRemoteConnection>`
+Using :py:class:`DriverRemoteConnection<gremlinpy.remote.driver_remote_connection.DriverRemoteConnection>`
 -----------------------------------------------------------------------------------------------------------
 
 The
-:py:class:`DriverRemoteConnection<aiogremlin.remote.driver_remote_connection.DriverRemoteConnection>`
+:py:class:`DriverRemoteConnection<gremlinpy.remote.driver_remote_connection.DriverRemoteConnection>`
 object allows you to configure you database connection in one of two ways:
 
 1. Passing configuration values as kwargs or a :py:class:`dict` to the classmethod
-:py:meth:`open<aiogremlin.remote.driver_remote_connection.DriverRemoteConnection.open>`::
+:py:meth:`open<gremlinpy.remote.driver_remote_connection.DriverRemoteConnection.open>`::
 
     >>> remote_connection = await DriverRemoteConnection.open(
     ...    'ws://localhost:8182/gremlin', 'g', port=9430)
 
-2. Passing a :py:class:`Cluster<aiogremlin.driver.cluster.Cluster>` object to the
+2. Passing a :py:class:`Cluster<gremlinpy.driver.cluster.Cluster>` object to the
 classmethod
-:py:meth:`using<aiogremlin.remote.driver_remote_connection.DriverRemoteConnection.using>`::
+:py:meth:`using<gremlinpy.remote.driver_remote_connection.DriverRemoteConnection.using>`::
 
     >>> import asyncio
-    >>> from aiogremlin import Cluster
+    >>> from gremlinpy import Cluster
     >>> loop = asyncio.get_event_loop()
     >>> cluster = await Cluster.open(loop, port=9430, aliases={'g': 'g'})
     >>> remote_connection = await DriverRemoteConnection.using(cluster)
 
 In the case that the
-:py:class:`DriverRemoteConnection<aiogremlin.remote.driver_remote_connection.DriverRemoteConnection>`
+:py:class:`DriverRemoteConnection<gremlinpy.remote.driver_remote_connection.DriverRemoteConnection>`
 is created with
-:py:meth:`using<aiogremlin.remote.driver_remote_connection.DriverRemoteConnection.using>`,
+:py:meth:`using<gremlinpy.remote.driver_remote_connection.DriverRemoteConnection.using>`,
 it is not necessary to close the
-:py:class:`DriverRemoteConnection<aiogremlin.remote.driver_remote_connection.DriverRemoteConnection>`,
-but the underlying :py:class:`Cluster<aiogremlin.driver.cluster.Cluster>` must be closed::
+:py:class:`DriverRemoteConnection<gremlinpy.remote.driver_remote_connection.DriverRemoteConnection>`,
+but the underlying :py:class:`Cluster<gremlinpy.driver.cluster.Cluster>` must be closed::
 
     >>> await cluster.close()
 
 Configuration options are specified in the final section of this document.
 
-:py:class:`DriverRemoteConnection<aiogremlin.remote.driver_remote_connection.DriverRemoteConnection>`
+:py:class:`DriverRemoteConnection<gremlinpy.remote.driver_remote_connection.DriverRemoteConnection>`
 is also an asynchronous context manager. It can be used as follows::
 
     >>> async with remote_connection:
@@ -108,7 +108,7 @@ is also an asynchronous context manager. It can be used as follows::
     # remote_connection is closed upon exit
 
 Taking this one step further, the
-:py:meth:`open<aiogremlin.remote.driver_remote_connection.DriverRemoteConnection.open>`
+:py:meth:`open<gremlinpy.remote.driver_remote_connection.DriverRemoteConnection.open>`
 can be awaited in the async context manager statement::
 
     >>> async with await DriverRemoteConnection.open() as remote_connection:
@@ -116,31 +116,31 @@ can be awaited in the async context manager statement::
     ...     # traverse
     # remote connection is closed upon exit
 
-Using the :py:mod:`driver<aiogremlin.driver>` Module
+Using the :py:mod:`driver<gremlinpy.driver>` Module
 ----------------------------------------------------
 
-:py:mod:`aiogremlin` also includes an asynchronous driver modeled after the
+:py:mod:`gremlinpy` also includes an asynchronous driver modeled after the
 official Gremlin-Python driver implementation. However, instead of using
 threads for asynchronous I/O, it uses an :py:mod:`asyncio` based implemenation.
 
 To submit a raw Gremlin script to the server, use the
-:py:class:`Client<aiogremlin.driver.client.Client>`. This class should not
+:py:class:`Client<gremlinpy.driver.client.Client>`. This class should not
 be instantiated directly, instead use a
-:py:class:`Cluster<aiogremlin.driver.cluster.Cluster>` object::
+:py:class:`Cluster<gremlinpy.driver.cluster.Cluster>` object::
 
     >>> cluster = await Cluster.open(loop)
     >>> client = await cluster.connect()
     >>> result_set = await client.submit('g.V().hasLabel(x)', {'x': 'person'})
 
-The :py:class:`ResultSet<aiogremlin.driver.resultset.ResultSet>` returned by
-:py:meth:`Client<aiogremlin.driver.client.Client.submit>` implements the
+The :py:class:`ResultSet<gremlinpy.driver.resultset.ResultSet>` returned by
+:py:meth:`Client<gremlinpy.driver.client.Client.submit>` implements the
 async interator protocol::
 
     >>> async for v in result_set:
     ...     print(v)
 
 It also provides a convenience method
-:py:meth:`all<aiogremlin.driver.resultset.ResultSet.all>`
+:py:meth:`all<gremlinpy.driver.resultset.ResultSet.all>`
 that aggregates and returns the result of the script in a :py:class:`list`::
 
     >>> results = await result_set.all()
@@ -149,16 +149,16 @@ Closing the client will close the underlying cluster::
 
     >>> await client.close()
 
-Configuring the :py:class:`Cluster<aiogremlin.driver.cluster.Cluster>` object
+Configuring the :py:class:`Cluster<gremlinpy.driver.cluster.Cluster>` object
 -----------------------------------------------------------------------------
 
 Configuration options can be set on
-:py:class:`Cluster<aiogremlin.driver.cluster.Cluster>` in one of two ways, either
+:py:class:`Cluster<gremlinpy.driver.cluster.Cluster>` in one of two ways, either
 passed as keyword arguments to
-:py:meth:`Cluster<aiogremlin.driver.cluster.Cluster.open>`, or stored in a configuration
-file and passed to the :py:meth:`open<aiogremlin.driver.cluster.Cluster.open>`
+:py:meth:`Cluster<gremlinpy.driver.cluster.Cluster.open>`, or stored in a configuration
+file and passed to the :py:meth:`open<gremlinpy.driver.cluster.Cluster.open>`
 using the kwarg `configfile`. Configuration files can be either YAML or JSON
-format. Currently, :py:class:`Cluster<aiogremlin.driver.cluster.Cluster>`
+format. Currently, :py:class:`Cluster<gremlinpy.driver.cluster.Cluster>`
 uses the following configuration:
 
 +-------------------+----------------------------------------------+-------------+

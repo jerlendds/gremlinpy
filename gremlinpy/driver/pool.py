@@ -3,16 +3,16 @@ import collections
 
 import aiohttp
 
-from aiogremlin.driver import connection
+from gremlinpy.driver import connection
 
 
 class PooledConnection:
     """
-    Wrapper for :py:class:`Connection<aiogremlin.driver.connection.Connection>`
+    Wrapper for :py:class:`Connection<gremlinpy.driver.connection.Connection>`
     that helps manage tomfoolery associated with connection pooling.
 
-    :param aiogremlin.driver.connection.Connection conn:
-    :param aiogremlin.driver.pool.ConnectionPool pool:
+    :param gremlinpy.driver.connection.Connection conn:
+    :param gremlinpy.driver.pool.ConnectionPool pool:
     """
     def __init__(self, conn, pool):
         self._conn = conn
@@ -106,7 +106,7 @@ class ConnectionPool:
         self._max_inflight = max_inflight
         self._response_timeout = response_timeout
         self._message_serializer = message_serializer
-        self._condition = asyncio.Condition(loop=self._loop)
+        self._condition = asyncio.Condition()
         self._available = collections.deque()
         self._acquired = collections.deque()
         self._provider = provider
@@ -189,7 +189,7 @@ class ConnectionPool:
         while self._acquired:
             conn = self._acquired.popleft()
             waiters.append(conn.close())
-        await asyncio.gather(*waiters, loop=self._loop)
+        await asyncio.gather(*waiters)
 
     async def _get_connection(self, username, password, max_inflight,
                               response_timeout, message_serializer, provider):

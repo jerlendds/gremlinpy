@@ -17,12 +17,12 @@
 import asyncio
 import pytest
 
-from aiogremlin.structure.graph import Graph
+from gremlinpy.structure.graph import Graph
 from gremlin_python.process.traversal import T
-from aiogremlin import driver
-from aiogremlin.driver.provider import TinkerGraph
+from gremlinpy import driver
+from gremlinpy.driver.provider import TinkerGraph
 from gremlin_python.driver import serializer
-from aiogremlin.remote.driver_remote_connection import DriverRemoteConnection
+from gremlinpy.remote.driver_remote_connection import DriverRemoteConnection
 
 
 # def pytest_generate_tests(metafunc):

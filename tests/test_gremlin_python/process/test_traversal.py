@@ -19,7 +19,7 @@ under the License.
 '''THIS FILE HAS BEEN MODIFIED BY DAVID M. BROWN TO SUPPORT PEP 492'''
 __author__ = 'Marko A. Rodriguez (http://markorodriguez.com)'
 
-from aiogremlin.structure.graph import Graph
+from gremlinpy.structure.graph import Graph
 from gremlin_python.process.traversal import P
 from gremlin_python.process.traversal import Binding
 from gremlin_python.process.graph_traversal import __

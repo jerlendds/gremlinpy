@@ -19,7 +19,7 @@
 # import uuid
 # import pytest
 #
-# from aiogremlin import exception
+# from gremlinpy import exception
 # from gremlin_python.driver import request, serializer
 #
 #

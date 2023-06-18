@@ -19,10 +19,10 @@ under the License.
 '''THIS FILE HAS BEEN MODIFIED BY DAVID M. BROWN TO SUPPORT PEP 492'''
 import pytest
 
-from aiogremlin.structure.graph import Graph
-from aiogremlin.remote.driver_remote_connection import DriverRemoteConnection
-from aiogremlin.driver.protocol import GremlinServerWSProtocol
-from aiogremlin.driver.aiohttp.transport import AiohttpTransport
+from gremlinpy.structure.graph import Graph
+from gremlinpy.remote.driver_remote_connection import DriverRemoteConnection
+from gremlinpy.driver.protocol import GremlinServerWSProtocol
+from gremlinpy.driver.aiohttp.transport import AiohttpTransport
 from gremlin_python.driver.serializer import GraphSONMessageSerializer
 from gremlin_python.process.traversal import T
 

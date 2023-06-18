@@ -1,7 +1,7 @@
 import asyncio
 import functools
 
-from aiogremlin import exception
+from gremlinpy import exception
 
 
 def error_handler(fn):

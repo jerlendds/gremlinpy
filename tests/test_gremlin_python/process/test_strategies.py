@@ -20,7 +20,7 @@ under the License.
 __author__ = 'Marko A. Rodriguez (http://markorodriguez.com)'
 
 
-from aiogremlin.structure.graph import Graph
+from gremlinpy.structure.graph import Graph
 from gremlin_python.process.strategies import *
 from gremlin_python.process.graph_traversal import __
 

@@ -7,9 +7,9 @@ try:
 except ImportError:
     import json
 
-from aiogremlin.driver import provider, resultset
-from aiogremlin.driver.protocol import GremlinServerWSProtocol
-from aiogremlin.driver.aiohttp.transport import AiohttpTransport
+from gremlinpy.driver import provider, resultset
+from gremlinpy.driver.protocol import GremlinServerWSProtocol
+from gremlinpy.driver.aiohttp.transport import AiohttpTransport
 from gremlin_python.driver import serializer
 
 
@@ -20,7 +20,7 @@ class Connection:
     """
     Main classd for interacting with the Gremlin Server. Encapsulates a
     websocket connection. Not instantiated directly. Instead use
-    :py:meth::`Connection.open<aiogremlin.driver.connection.Connection.open>`.
+    :py:meth::`Connection.open<gremlinpy.driver.connection.Connection.open>`.
 
     :param str url: url for host Gremlin Server
     :param gremlin_python.driver.transport.AbstractBaseTransport transport:
@@ -46,8 +46,7 @@ class Connection:
         self._closed = False
         self._result_sets = {}
         self._receive_task = self._loop.create_task(self._receive())
-        self._semaphore = asyncio.Semaphore(value=max_inflight,
-                                            loop=self._loop)
+        self._semaphore = asyncio.Semaphore(value=max_inflight)
         if isinstance(message_serializer, type):
             message_serializer = message_serializer()
         self._message_serializer = message_serializer
@@ -82,7 +81,7 @@ class Connection:
         :param message_serializer: Message serializer implementation
         :param provider: Graph provider object implementation
 
-        :returns: :py:class:`Connection<aiogremlin.driver.connection.Connection>`
+        :returns: :py:class:`Connection<gremlinpy.driver.connection.Connection>`
         """
         if not protocol:
             protocol = GremlinServerWSProtocol(message_serializer)
@@ -121,7 +120,7 @@ class Connection:
         Submit a script and bindings to the Gremlin Server
 
         :param `RequestMessage<gremlin_python.driver.request.RequestMessage>` message:
-        :returns: :py:class:`ResultSet<aiogremlin.driver.resultset.ResultSet>`
+        :returns: :py:class:`ResultSet<gremlinpy.driver.resultset.ResultSet>`
             object
         """
         await self._semaphore.acquire()

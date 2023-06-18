@@ -3,7 +3,7 @@ import uuid
 
 import pytest
 
-from aiogremlin import driver
+from gremlinpy import driver
 from gremlin_python.driver import request, serializer
 
 @pytest.mark.asyncio

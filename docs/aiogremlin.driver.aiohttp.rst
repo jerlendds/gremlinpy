@@ -1,13 +1,13 @@
-aiogremlin\.driver\.aiohttp package
+gremlinpy\.driver\.aiohttp package
 ===================================
 
 Submodules
 ----------
 
-aiogremlin\.driver\.aiohttp\.transport module
+gremlinpy\.driver\.aiohttp\.transport module
 ---------------------------------------------
 
-.. automodule:: aiogremlin.driver.aiohttp.transport
+.. automodule:: gremlinpy.driver.aiohttp.transport
     :members:
     :undoc-members:
     :show-inheritance:
@@ -16,7 +16,7 @@ aiogremlin\.driver\.aiohttp\.transport module
 Module contents
 ---------------
 
-.. automodule:: aiogremlin.driver.aiohttp
+.. automodule:: gremlinpy.driver.aiohttp
     :members:
     :undoc-members:
     :show-inheritance:

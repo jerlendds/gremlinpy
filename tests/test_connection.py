@@ -23,9 +23,9 @@ import pytest
 import aiohttp
 from aiohttp import web
 
-from aiogremlin import driver
-from aiogremlin import exception
-from aiogremlin.driver import provider
+from gremlinpy import driver
+from gremlinpy import exception
+from gremlinpy.driver import provider
 from gremlin_python.driver import request, serializer
 
 

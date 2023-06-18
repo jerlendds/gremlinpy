@@ -1,21 +1,21 @@
-aiogremlin\.process package
+gremlinpy\.process package
 ===========================
 
 Submodules
 ----------
 
-aiogremlin\.process\.graph\_traversal module
+gremlinpy\.process\.graph\_traversal module
 --------------------------------------------
 
-.. automodule:: aiogremlin.process.graph_traversal
+.. automodule:: gremlinpy.process.graph_traversal
     :members:
     :undoc-members:
     :show-inheritance:
 
-aiogremlin\.process\.traversal module
+gremlinpy\.process\.traversal module
 -------------------------------------
 
-.. automodule:: aiogremlin.process.traversal
+.. automodule:: gremlinpy.process.traversal
     :members:
     :undoc-members:
     :show-inheritance:
@@ -24,7 +24,7 @@ aiogremlin\.process\.traversal module
 Module contents
 ---------------
 
-.. automodule:: aiogremlin.process
+.. automodule:: gremlinpy.process
     :members:
     :undoc-members:
     :show-inheritance:

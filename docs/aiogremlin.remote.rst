@@ -1,29 +1,29 @@
-aiogremlin\.remote package
+gremlinpy\.remote package
 ==========================
 
 Submodules
 ----------
 
-aiogremlin\.remote\.driver\_remote\_connection module
+gremlinpy\.remote\.driver\_remote\_connection module
 -----------------------------------------------------
 
-.. automodule:: aiogremlin.remote.driver_remote_connection
+.. automodule:: gremlinpy.remote.driver_remote_connection
     :members:
     :undoc-members:
     :show-inheritance:
 
-aiogremlin\.remote\.driver\_remote\_side\_effects module
+gremlinpy\.remote\.driver\_remote\_side\_effects module
 --------------------------------------------------------
 
-.. automodule:: aiogremlin.remote.driver_remote_side_effects
+.. automodule:: gremlinpy.remote.driver_remote_side_effects
     :members:
     :undoc-members:
     :show-inheritance:
 
-aiogremlin\.remote\.remote\_connection module
+gremlinpy\.remote\.remote\_connection module
 ---------------------------------------------
 
-.. automodule:: aiogremlin.remote.remote_connection
+.. automodule:: gremlinpy.remote.remote_connection
     :members:
     :undoc-members:
     :show-inheritance:
@@ -32,7 +32,7 @@ aiogremlin\.remote\.remote\_connection module
 Module contents
 ---------------
 
-.. automodule:: aiogremlin.remote
+.. automodule:: gremlinpy.remote
     :members:
     :undoc-members:
     :show-inheritance:

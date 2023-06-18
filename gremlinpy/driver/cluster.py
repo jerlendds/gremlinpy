@@ -10,8 +10,8 @@ except ImportError:
 
 import yaml
 
-from aiogremlin import exception
-from aiogremlin import driver
+from gremlinpy import exception
+from gremlinpy import driver
 from gremlin_python.driver import serializer
 
 
@@ -31,7 +31,7 @@ def my_import(name):
 class Cluster:
     """
     A cluster of Gremlin Server hosts. This object provides the main high
-    level interface used by the :py:mod:`aiogremlin` module.
+    level interface used by the :py:mod:`gremlinpy` module.
 
     :param asyncio.BaseEventLoop loop:
     :param dict aliases: Optional mapping for aliases. Default is `None`
@@ -53,7 +53,7 @@ class Cluster:
         'max_times_acquired': 16,
         'max_inflight': 64,
         'message_serializer': 'gremlin_python.driver.serializer.GraphSONMessageSerializer',
-        'provider': 'aiogremlin.driver.provider.TinkerGraph'
+        'provider': 'gremlinpy.driver.provider.TinkerGraph'
     }
 
     def __init__(self, loop, aliases=None, **config):
@@ -105,7 +105,7 @@ class Cluster:
         **coroutine** Get connection from next available host in a round robin
         fashion.
 
-        :returns: :py:class:`Connection<aiogremlin.driver.connection.Connection>`
+        :returns: :py:class:`Connection<gremlinpy.driver.connection.Connection>`
         """
         if not self._hosts:
             await self.establish_hosts()
@@ -199,7 +199,7 @@ class Cluster:
         **coroutine** Get a connected client. Main API method.
 
         :returns: A connected instance of
-            `Client<aiogremlin.driver.client.Client>`
+            `Client<gremlinpy.driver.client.Client>`
         """
         aliases = aliases or self._aliases
         if not self._hosts:
@@ -220,5 +220,5 @@ class Cluster:
         while self._hosts:
             host = self._hosts.popleft()
             waiters.append(host.close())
-        await asyncio.gather(*waiters, loop=self._loop)
+        await asyncio.gather(*waiters)
         self._closed = True

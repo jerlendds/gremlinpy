@@ -1,4 +1,4 @@
-aiogremlin package
+gremlinpy package
 ==================
 
 Subpackages
@@ -6,18 +6,18 @@ Subpackages
 
 .. toctree::
 
-    aiogremlin.driver
-    aiogremlin.process
-    aiogremlin.remote
-    aiogremlin.structure
+    gremlinpy.driver
+    gremlinpy.process
+    gremlinpy.remote
+    gremlinpy.structure
 
 Submodules
 ----------
 
-aiogremlin\.exception module
+gremlinpy\.exception module
 ----------------------------
 
-.. automodule:: aiogremlin.exception
+.. automodule:: gremlinpy.exception
     :members:
     :undoc-members:
     :show-inheritance:
@@ -26,7 +26,7 @@ aiogremlin\.exception module
 Module contents
 ---------------
 
-.. automodule:: aiogremlin
+.. automodule:: gremlinpy
     :members:
     :undoc-members:
     :show-inheritance:

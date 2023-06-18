@@ -8,7 +8,7 @@
 
 ## v3.3.3
 
-* Fixed bug preventing code from running on python 3.7+, see [issue #1](https://git.qoto.org/goblin-ogm/aiogremlin/issues/1).
+* Fixed bug preventing code from running on python 3.7+, see [issue #1](https://git.qoto.org/goblin-ogm/gremlinpy/issues/1).
 
 ## v3.3.2
 

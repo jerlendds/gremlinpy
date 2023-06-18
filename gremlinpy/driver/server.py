@@ -1,6 +1,6 @@
 import ssl
 
-from aiogremlin.driver import pool
+from gremlinpy.driver import pool
 
 
 class GremlinServer:
@@ -45,7 +45,7 @@ class GremlinServer:
         """
         Readonly property.
 
-        :returns: :py:class:`ConnectionPool<aiogremlin.driver.pool.ConnectionPool>`
+        :returns: :py:class:`ConnectionPool<gremlinpy.driver.pool.ConnectionPool>`
         """
         if self._pool:
             return self._pool

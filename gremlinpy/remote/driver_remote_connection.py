@@ -1,9 +1,9 @@
 import asyncio
 from urllib.parse import urlparse
 
-from aiogremlin.driver.cluster import Cluster
+from gremlinpy.driver.cluster import Cluster
 from gremlin_python.driver import serializer
-from aiogremlin.remote.driver_remote_side_effects import (
+from gremlinpy.remote.driver_remote_side_effects import (
     AsyncRemoteTraversalSideEffects)
 from gremlin_python.driver.remote_connection import RemoteTraversal
 
@@ -17,9 +17,9 @@ class DriverRemoteConnection:
     instead use :py:meth:`DriverRemoteConnection.open` or
     :py:meth:`DriverRemoteConnection.using`
 
-    :param aiogremlin.driver.client.Client client:
+    :param gremlinpy.driver.client.Client client:
     :param asyncio.BaseEventLoop loop:
-    :param aiogremlin.driver.cluster.Cluster cluster:
+    :param gremlinpy.driver.cluster.Cluster cluster:
     """
 
     def __init__(self, client, loop, *, cluster=None):
@@ -39,9 +39,9 @@ class DriverRemoteConnection:
     async def using(cls, cluster, aliases=None):
         """
         Create a :py:class:`DriverRemoteConnection` using a specific
-        :py:class:`Cluster<aiogremlin.driver.cluster.Cluster>`
+        :py:class:`Cluster<gremlinpy.driver.cluster.Cluster>`
 
-        :param aiogremlin.driver.cluster.Cluster cluster:
+        :param gremlinpy.driver.cluster.Cluster cluster:
         :param dict aliases: Optional mapping for aliases. Default is `None`.
             Also accepts `str` argument which will be assigned to `g`
         """
