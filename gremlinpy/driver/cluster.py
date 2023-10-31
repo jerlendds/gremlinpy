@@ -69,7 +69,7 @@ class Cluster:
         self._aliases = aliases
 
     @classmethod
-    async def open(cls, loop, *, aliases=None, configfile=None, **config):
+    async def open(cls, loop=asyncio.get_event_loop(), *, aliases=None, configfile=None, **config):
         """
         **coroutine** Open a cluster, connecting to all available hosts as
         specified in configuration.
